@@ -117,7 +117,7 @@ def lstm_forecast(data, look_back=10):
 def main():
     st.title("Análise de Preço do Petróleo Brent")
 
-    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Insights", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM"]
+    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Insights", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM", "Previsões e Modelo de Machine Learning", "Conclusão"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     data = load_data()
