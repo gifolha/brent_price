@@ -450,6 +450,12 @@ def main():
             predictions_table = predictions_table.sort_values(by='Date', ascending=False)
 
             st.write(predictions_table)
+            
+        # Adicionando uma nova tabela com os erros entre o preço de fechamento real e a previsão do ARIMA
+        st.subheader("Erros entre o Close Price (Real) e a Previsão do ARIMA")
+        error_table = predictions_table[['Date', 'Close Price (Real)', 'ARIMA Forecast']]
+        error_table['Erro'] = error_table['Close Price (Real)'] - error_table['ARIMA Forecast']
+        st.write(error_table)
 
 
     elif choice == "Conclusão":
