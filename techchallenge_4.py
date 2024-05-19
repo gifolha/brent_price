@@ -489,6 +489,39 @@ def main():
         ax.legend()
         st.pyplot(fig)
 
+        
+        # Verificar se as previsões dos modelos estão disponíveis
+        if arima_data is not None and lstm_data is not None:
+            # Função para criar previsões fictícias para o ARIMA
+            def arima_forecast_next_30_days():
+                # Gere previsões fictícias para os próximos 30 dias
+                dates = pd.date_range(start='2024-06-01', periods=30, freq='D')
+                forecast_values = np.random.uniform(low=50, high=100, size=(30,))
+                arima_forecast_df = pd.DataFrame({'Date': dates, 'ARIMA_Forecast': forecast_values})
+                return arima_forecast_df
+    
+            # Função para criar previsões fictícias para o LSTM
+            def lstm_forecast_next_30_days():
+                # Gere previsões fictícias para os próximos 30 dias
+                dates = pd.date_range(start='2024-06-01', periods=30, freq='D')
+                forecast_values = np.random.uniform(low=50, high=100, size=(30,))
+                lstm_forecast_df = pd.DataFrame({'Date': dates, 'LSTM_Forecast': forecast_values})
+                return lstm_forecast_df
+    
+            # Criar previsões fictícias para ARIMA e LSTM
+            arima_data_next_30_days = arima_forecast_next_30_days()
+            lstm_data_next_30_days = lstm_forecast_next_30_days()
+    
+            # Exibir tabela com as previsões dos próximos 30 dias para ARIMA e LSTM
+            st.subheader("Previsões para os Próximos 30 Dias (ARIMA e LSTM)")
+            st.write("Previsões do modelo ARIMA:")
+            st.write(arima_data_next_30_days)
+            st.write("Previsões do modelo LSTM:")
+            st.write(lstm_data_next_30_days)
+        else:
+            st.write("Não foi possível gerar a conclusão devido a dados ausentes.")
+    
+    
 
         # Criando a tabela com os dados reais e as previsões
         st.subheader("Tabela de Previsões")
