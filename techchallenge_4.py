@@ -35,9 +35,13 @@ def plot_time_series(data, title="Time Series"):
 def plot_decomposition(data):
     result = seasonal_decompose(data['Close'], model='multiplicative', period=7)
     fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(15, 8))
+    st.markdown("Série Real")
     result.observed.plot(ax=ax1)
+    st.markdown("Tendência")
     result.trend.plot(ax=ax2)
+    st.markdown("Sazonalidade")
     result.seasonal.plot(ax=ax3)
+    st.markdown("Resíduos")
     result.resid.plot(ax=ax4)
     plt.tight_layout()
     st.pyplot(fig)
@@ -134,15 +138,12 @@ def main():
         st.markdown(
             """
             Notas da análise de decomposição da série
-            #model='additive': Este parâmetro especifica o tipo de modelo utilizado na decomposição.
-            #Os dois tipos principais são:
-            #"additive" (modelo apropriado quando a magnitude da sazonalidade não varia com a tendência)
-            #"multiplicative" (modelo é mais apropriado quando a magnitude da sazonalidade varia com a tendência).
-            #period: Este é o período da sazonalidade. Ele especifica o número de observações em um ciclo sazonal.
-            seasonplot.observed.plot(ax=ax1) #serie real
-            seasonplot.trend.plot(ax=ax2)    #tendencia
-            seasonplot.seasonal.plot(ax=ax3) #sazonalisade
-            seasonplot.resid.plot(ax=ax4)    #residuos
+            
+            - model='additive': Este parâmetro especifica o tipo de modelo utilizado na decomposição.
+            - Os dois tipos principais são:
+            - "additive" (modelo apropriado quando a magnitude da sazonalidade não varia com a tendência)
+            - "multiplicative" (modelo é mais apropriado quando a magnitude da sazonalidade varia com a tendência).
+            - period: Este é o período da sazonalidade. Ele especifica o número de observações em um ciclo sazonal.
             """
         )
         plot_decomposition(data)
