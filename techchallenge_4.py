@@ -131,6 +131,20 @@ def main():
 
     elif choice == "Decomposição":
         st.subheader("Decomposição")
+        st.markdown(
+            """
+            Notas da análise de decomposição da série
+            #model='additive': Este parâmetro especifica o tipo de modelo utilizado na decomposição.
+            #Os dois tipos principais são:
+            #"additive" (modelo apropriado quando a magnitude da sazonalidade não varia com a tendência)
+            #"multiplicative" (modelo é mais apropriado quando a magnitude da sazonalidade varia com a tendência).
+            #period: Este é o período da sazonalidade. Ele especifica o número de observações em um ciclo sazonal.
+            seasonplot.observed.plot(ax=ax1) #serie real
+            seasonplot.trend.plot(ax=ax2)    #tendencia
+            seasonplot.seasonal.plot(ax=ax3) #sazonalisade
+            seasonplot.resid.plot(ax=ax4)    #residuos
+            """
+        )
         plot_decomposition(data)
 
     elif choice == "Previsão ARIMA":
