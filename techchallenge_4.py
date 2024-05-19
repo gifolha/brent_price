@@ -222,6 +222,21 @@ def main():
         )
     elif choice == "Narrativa Temporal - Histórico Geopolítico":
         st.subheader("Narrativa Temporal - Histórico Geopolítico")
+        container = st.container(border=True)
+        container.write(
+            """
+            *2008, o ano em que o petróleo enlouqueceu o mercado:*
+            
+            O mercado do petróleo viveu em 2008 um drama em dois atos, marcado pela superação da barreira dos 100 dólares o barril e uma disparada meteórica dos preços até 147,50 dólares.
+            Depois disso, os preços começaram a despencar mais rapidamente do que haviam subido, ficando a 39,35 dólares em Londres, no início de dezembro.
+            No primeiro semestre, uma soma de fatores levou os preços às alturas: tensões geopolíticas, do Irã à Nigéria passando pelo Paquistão; o equilíbrio tenso entre uma oferta limitada e uma demanda puxada pelos países emergentes; a conscientização de que as reservas são limitadas e de acesso cada vez mais difícil; uma febre dos fundos de investimento por matérias-primas.
+            Depois da falência do banco americano Lehman Brothers em setembro, esta lógica se inverte. Temendo a deflação, os investidores abandonam o petróleo, porque precisam urgentemente de liquidez.
+            
+            
+            Fonte: https://g1.globo.com/Noticias/Economia_Negocios/0,,MUL940136-9356,00-O+ANO+EM+QUE+O+PETROLEO+ENLOUQUECEU+O+MERCADO.html
+
+            """
+        )
 
     elif choice == "Navegação":
         st.subheader("Navegação")
@@ -248,8 +263,6 @@ def main():
 
                 """
             )
-
-
 
 
 if __name__ == "__main__":
