@@ -237,6 +237,21 @@ def main():
 
             """
         )
+        container.write(
+            """
+            *Brent cai abaixo de US$90; tem menor nível desde 2010:*
+            
+            Arábia Saudita disse que elevou a produção no mês passado, aumentando especulação sobre uma guerra de preços na Organização dos Países Exportadores de Petróleo.
+            O petróleo Brent diminuiu para o menor patamar desde 2010, operando abaixo de 90 dólares o barril, após a Arábia Saudita dizer que elevou a produção, aumentando especulação sobre uma guerra de preços na Organização dos Países Exportadores de Petróleo (Opep), levantando dúvidas se o maior exportador do mundo estará preparado para tomar medidas unilaterais.
+            O Brent para entrega em novembro caía 0,71 dólar, a 89,34 dólares o barril, por volta das 8h50 (horário de Brasília), depois de cair mais cedo para 88,11 dólares, seu nível mais baixo desde dezembro de 2010.
+            O petróleo nos EUA recuava no mesmo horário quase 1 dólar, a 84,79 dólares o barril. Também conhecido como West Texas Intermediate (WTI), a commodity norte-americana atingiu uma mínima de 83,59 dólares, seu nível mais baixo desde julho de 2012.
+            A produção de petróleo também tem aumentado em outros países membros da Opep, como Iraque e Líbia, disse o grupo em seu relatório mensal de mercado nesta sexta-feira, apesar da violência e da instabilidade em ambos os países.
+            
+            
+            Fonte: https://exame.com/economia/brent-cai-abaixo-de-us-90-tem-menor-nivel-desde-2010/
+
+            """
+        )
 
     elif choice == "Navegação":
         st.subheader("Navegação")
