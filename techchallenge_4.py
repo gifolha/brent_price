@@ -405,6 +405,11 @@ def main():
             """
         )
 
+    elif choice == "Previsões e Modelo de Machine Learning":
+        st.subheader("Previsões e Modelo de Machine Learning")
+
+    elif choice == "Conclusão":
+        st.subheader("Conclusão")
     
     elif choice == "Navegação":
         st.subheader("Navegação")
@@ -429,7 +434,8 @@ def main():
                 * Previsão ARIMA - aqui você vai encontrar a primeira previsão dos dados, utilizando o modelo de Machine Learning ARIMA.
                 * Previsão Prophet - aqui você vai encontrar a segunda previsão dos dados, utilizando o modelo de Machine Learning Prophet.
                 * Previsão LSTM - aqui você vai encontrar a terceira previsão dos dados, utilizando o modelo de Machine Learning LSTM.
-
+                * Previsões e Modelo de Machine Learning - aqui você vai encontrar alguns dados e comparações entre os modelos ARIMA, PROPHET e LSTM.
+                * Conclusão - aqui você vai encontrar a conclusão deste projeto.
                 """
             )
 
