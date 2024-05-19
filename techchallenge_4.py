@@ -411,22 +411,20 @@ def main():
 
     # Plotando a série temporal original
         fig, ax = plt.subplots(figsize=(15, 8))
-        ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='black')
+        ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='lightgreen')
 
     # Previsões ARIMA
         arima_data = arima_forecast(data)
         if arima_data is not None:
-            print("ARIMA data:")
-            print(arima_data.head())  # Adicionando esta linha para depurar
-            ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+            ax.plot(data['Date'], arima_data, label='ARIMA Forecast', color='lightcoral')
 
     # Previsões Prophet
         prophet_data = prophet_forecast(data)
-        ax.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='blue')
+        ax.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='lightcoral')
 
     # Previsões LSTM
         lstm_data = lstm_forecast(data)
-        ax.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='green')
+        ax.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='lightcoral')
 
         ax.set_xlabel('Date')
         ax.set_ylabel('Close Price')
@@ -434,25 +432,8 @@ def main():
         ax.legend()
         st.pyplot(fig)
 
-
-    # Criando a tabela com os dados reais e as previsões
-        st.subheader("Tabela de Previsões")
-        if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
-            predictions_table = pd.DataFrame({
-                'Date': data['Date'],
-                'Close Price (Real)': data['Close'],
-                'ARIMA Forecast': arima_data['Forecast_ARIMA'],  # Usando a coluna correta do arima_data
-                'Prophet Forecast': prophet_data['yhat'],
-                'LSTM Forecast': lstm_data['Forecast_LSTM']
-            })
-
-        # Ordenando o DataFrame pela coluna de datas em ordem decrescente
-            predictions_table = predictions_table.sort_values(by='Date', ascending=False)
-
-            st.write(predictions_table)
-            
         # Criando a tabela com os dados reais e as previsões
-        st.subheader("Comparando Modelos")
+        st.subheader("Tabela de Previsões")
         if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
             predictions_table = pd.DataFrame({
                 'Data': data['Date'],
@@ -464,11 +445,23 @@ def main():
                 'Prophet': prophet_data['yhat'],
                 'Erro Prophet': data['Close'] - prophet_data['yhat']
             })
-
+    
             # Ordenando o DataFrame pela coluna de datas em ordem decrescente
             predictions_table = predictions_table.sort_values(by='Data', ascending=False)
-
-            st.write(predictions_table)
+    
+            # Aplicando estilos condicionais para destacar as colunas desejadas
+            def highlight_close(val):
+                color = 'lightgreen' if val == data['Close'].max() else 'white'
+                return f'background-color: {color}'
+    
+            def highlight_forecast(val):
+                color = 'lightcoral' if val != data['Close'].max() else 'white'
+                return f'background-color: {color}'
+    
+            predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
+    
+            st.write(predictions_table_styled)
+    
 
 
     elif choice == "Conclusão":
