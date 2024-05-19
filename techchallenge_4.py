@@ -434,6 +434,17 @@ def main():
         ax.legend()
         st.pyplot(fig)
 
+        # Criando a tabela com os dados reais e as previsões
+        st.subheader("Tabela de Previsões")
+        predictions_table = pd.DataFrame({
+            'Date': data['Date'],
+            'Close Price (Real)': data['Close'],
+            'ARIMA Forecast': arima_data,
+            'Prophet Forecast': prophet_data['yhat'],
+            'LSTM Forecast': lstm_data['Forecast_LSTM']
+        })
+        st.write(predictions_table)
+
 
 
     elif choice == "Conclusão":
