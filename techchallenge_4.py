@@ -466,6 +466,35 @@ def main():
 
     elif choice == "Conclusão":
         st.subheader("Conclusão")
+         # Criando a tabela com os dados reais e as previsões
+        st.subheader("Tabela de Previsões")
+        if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
+            predictions_table = pd.DataFrame({
+                'Data': data['Date'],
+                'Close': data['Close'],
+                'ARIMA': arima_data['Forecast_ARIMA'],  # Usando a coluna correta do arima_data
+                'Erro ARIMA': data['Close'] - arima_data['Forecast_ARIMA'],
+                'LSTM': lstm_data['Forecast_LSTM'],
+                'Erro LSTM': data['Close'] - lstm_data['Forecast_LSTM'],
+                'Prophet': prophet_data['yhat'],
+                'Erro Prophet': data['Close'] - prophet_data['yhat']
+            })
+    
+            # Ordenando o DataFrame pela coluna de datas em ordem decrescente
+            predictions_table = predictions_table.sort_values(by='Data', ascending=False)
+    
+            # Aplicando estilos condicionais para destacar as colunas desejadas
+            def highlight_close(val):
+                color = 'lightgreen' if val == data['Close'].max() else 'white'
+                return f'background-color: {color}'
+    
+            def highlight_forecast(val):
+                color = 'lightcoral' if val != data['Close'].max() else 'white'
+                return f'background-color: {color}'
+    
+            predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
+    
+            st.write(predictions_table_styled)
     
     elif choice == "Navegação":
         st.subheader("Navegação")
