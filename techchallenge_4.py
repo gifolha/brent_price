@@ -51,6 +51,7 @@ def plot_time_series(data, title="Time Series"):
     ax.set_ylabel('Close Price')
 
 
+
 # Função para decompor série temporal
 def plot_decomposition(data):
     result = seasonal_decompose(data['Close'], model='multiplicative', period=7)
