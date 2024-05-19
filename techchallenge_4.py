@@ -162,6 +162,20 @@ def main():
             plot_time_series(forecast_data, title="Previsão ARIMA")
     elif choice == "Previsão Prophet":
         st.subheader("Previsão Prophet")
+        st.markdown(
+            """
+            Fazer previsão usando o modelo ARIMA (AutoRegressive Integrated Moving Average) envolve prever valores futuros com base em padrões observados em dados históricos de uma série temporal. Para utilizar essa ferramenta:
+            
+            - Precisamos entender a série temporal: Antes de aplicar o modelo ARIMA, é importante entender a série temporal que será analizada. Isso inclui entender sua tendência, sazonalidade e qualquer padrão cíclico.
+            - Dividir os dados: Separar os dados em conjuntos de treinamento e teste. O conjunto de treinamento será usado para treinar o modelo, enquanto o conjunto de teste será usado para avaliar o desempenho da previsão.
+            - Identificar os parâmetros ARIMA: Determinar os parâmetros do modelo ARIMA, que incluem a ordem dos termos autoregressivos (p), a ordem de diferenciação (d) e a ordem dos termos de média móvel (q).
+            - Ajustar o modelo ARIMA: Aplique o modelo ARIMA aos dados de treinamento. Isso envolve estimar os parâmetros do modelo com os dados de treinamento.
+            - Validar o modelo: Avalie o desempenho do modelo usando os dados de teste. Isso pode ser feito comparando as previsões do modelo com os valores reais e calculando métricas de erro, como RMSE (Root Mean Squared Error) ou MAE (Mean Absolute Error).
+            - Fazer previsões: Use o modelo ajustado para fazer previsões sobre os valores futuros da série temporal.
+            
+            O ARIMA é um modelo popular para previsão de séries temporais devido à sua simplicidade e eficácia em capturar padrões temporais em dados históricos. 
+            """
+        )
         forecast = prophet_forecast(data)
         fig = plt.figure(figsize=(15, 10))
         plt.plot(data['Date'], data['Close'], label='Close')
@@ -171,6 +185,7 @@ def main():
         plt.ylabel('Close Price')
         plt.legend()
         st.pyplot(fig)
+
 
     elif choice == "Previsão LSTM":
         st.subheader("Previsão LSTM")
