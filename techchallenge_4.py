@@ -501,7 +501,35 @@ def main():
         ax.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='blue')
         
         # Previsões LSTM
-        lstm_data = lstm_forecast(data)
+        def lstm_forecast_conclusion(data, look_back=10):
+            date_column = data['Date']
+            data = data.reset_index()[['Close']]  # Resetar o índice e selecionar apenas a coluna 'Close'
+            scaler = MinMaxScaler(feature_range=(0, 1))
+            data_scaled = scaler.fit_transform(data)
+            X, y = [], []
+            for i in range(look_back, len(data_scaled)):
+                X.append(data_scaled[i-look_back:i, 0])
+                y.append(data_scaled[i, 0])
+            X, y = np.array(X), np.array(y)
+            X = X.reshape((X.shape[0], X.shape[1], 1))
+    
+            model = Sequential()
+            model.add(LSTM(50, return_sequences=True, input_shape=(X.shape[1], 1)))
+            model.add(LSTM(50))
+            model.add(Dense(1))
+            model.compile(optimizer='adam', loss='mean_squared_error')
+            model.fit(X, y, epochs=1, batch_size=1, verbose=0)
+    
+            predictions = model.predict(X)
+            predictions = scaler.inverse_transform(predictions)
+    
+            data['Forecast_LSTM'] = np.nan
+            data['Forecast_LSTM'].iloc[look_back:] = predictions.flatten()
+    
+            data['Date'] = date_column  # Reinsira a coluna 'Date'
+            return data
+        
+        lstm_data = lstm_forecast_conclusion(data)
         ax.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='green')
         
         ax.set_xlabel('Date')
@@ -542,7 +570,7 @@ def main():
         st.subheader("Previsões para 01/05/2024 até 30/06/2024")
         future_dates = pd.date_range(start='2024-05-01', end='2024-06-30')
         arima_forecast_df = arima_forecast_future(data, future_dates)
-        lstm_forecast_df = lstm_forecast(data, future_dates)
+        lstm_forecast_df = lstm_forecast_conclusion(data, future_dates)
         prophet_forecast_df = prophet_forecast(data, future_dates)
     
         future_forecast_table = pd.DataFrame({
@@ -554,7 +582,6 @@ def main():
     
         st.write(future_forecast_table)
 
-    
        
         
     elif choice == "Navegação":
