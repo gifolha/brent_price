@@ -461,37 +461,66 @@ def main():
             predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
     
             st.write(predictions_table_styled)
-    
 
     
     elif choice == "Conclusão":
-        st.subheader("Conclusão de qual é o melhor modelo")
-        
-        # Texto de conclusão
-        st.markdown("Aqui está a conclusão sobre qual é o melhor modelo para previsão do preço do petróleo Brent.")
-        
-        # Verificando se os dados de ARIMA, LSTM e Prophet estão disponíveis
-        arima_data = arima_forecast(data)
-        lstm_data = lstm_forecast(data)
-        prophet_data = prophet_forecast(data)
-        if 'arima_data' in globals() and 'lstm_data' in globals() and 'prophet_data' in globals():
-            # Criando uma tabela com os resultados dos modelos
-            conclusion_table = pd.DataFrame({
-                "Data": data['Date'],
-                "Close Price (Real)": data['Close'],
-                "Previsão ARIMA": arima_data['Forecast_ARIMA'],
-                "Erro ARIMA": arima_data['Erro_ARIMA'],
-                "Previsão LSTM": lstm_data['Forecast_LSTM'],
-                "Erro LSTM": lstm_data['Erro_LSTM'],
-                "Previsão Prophet": prophet_data['yhat'],
-                "Erro Prophet": prophet_data['Erro_Prophet']
-            })
-            
-            # Estilizando a tabela
-            st.dataframe(conclusion_table.style.set_precision(2))
-        else:
-            st.error("Não foi possível gerar a conclusão devido a dados ausentes.")
+        st.subheader("Previsões e Modelo de Machine Learning")
 
+    # Plotando a série temporal original
+        fig, ax = plt.subplots(figsize=(15, 8))
+        ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='black')
+
+    # Previsões ARIMA
+        arima_data = arima_forecast(data)
+        if arima_data is not None:
+            ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+    
+        # Previsões Prophet
+        prophet_data = prophet_forecast(data)
+        ax.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='blue')
+    
+        # Previsões LSTM
+        lstm_data = lstm_forecast(data)
+        ax.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='green')
+    
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Close Price')
+        ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
+        ax.legend()
+        st.pyplot(fig)
+
+
+        # Criando a tabela com os dados reais e as previsões
+        st.subheader("Tabela de Previsões")
+        if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
+            predictions_table = pd.DataFrame({
+                'Data': data['Date'],
+                'Close': data['Close'],
+                'ARIMA': arima_data['Forecast_ARIMA'],  # Usando a coluna correta do arima_data
+                'Erro ARIMA': data['Close'] - arima_data['Forecast_ARIMA'],
+                'LSTM': lstm_data['Forecast_LSTM'],
+                'Erro LSTM': data['Close'] - lstm_data['Forecast_LSTM'],
+                'Prophet': prophet_data['yhat'],
+                'Erro Prophet': data['Close'] - prophet_data['yhat']
+            })
+    
+            # Ordenando o DataFrame pela coluna de datas em ordem decrescente
+            predictions_table = predictions_table.sort_values(by='Data', ascending=False)
+    
+            # Aplicando estilos condicionais para destacar as colunas desejadas
+            def highlight_close(val):
+                color = 'lightgreen' if val == data['Close'].max() else 'white'
+                return f'background-color: {color}'
+    
+            def highlight_forecast(val):
+                color = 'lightcoral' if val != data['Close'].max() else 'white'
+                return f'background-color: {color}'
+    
+            predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
+    
+            st.write(predictions_table_styled)
+
+    
 
     
     elif choice == "Navegação":
