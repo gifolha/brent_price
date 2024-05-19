@@ -469,19 +469,6 @@ def main():
             predictions_table = predictions_table.sort_values(by='Data', ascending=False)
 
             st.write(predictions_table)
-            
-        # Aplicando estilos condicionais para destacar as colunas desejadas
-        def highlight_close(val):
-            color = 'lightgreen' if val == data['Close'].max() else 'white'
-            return f'background-color: {color}'
-
-        def highlight_forecast(val):
-            color = 'lightcoral' if val != data['Close'].max() else 'white'
-            return f'background-color: {color}'
-
-        predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
-
-        st.write(predictions_table_styled)
 
 
     elif choice == "Conclusão":
