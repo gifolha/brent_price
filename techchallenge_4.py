@@ -53,31 +53,27 @@ def plot_decomposition(data):
     st.markdown("### Decomposição da série temporal")
     st.pyplot(fig)
 
-
 # Função para prever usando ARIMA
 def arima_forecast(data):
     try:
         model = ARIMA(data['Close'], order=(2, 1, 2))
         results = model.fit()
-        forecast_data = data.copy()  # Criando uma cópia do DataFrame
-        forecast_data['Forecast_ARIMA'] = results.fittedvalues
-
+        
         # Plotando os dados originais e as previsões no mesmo eixo
         fig, ax = plt.subplots(figsize=(10, 6))
-        ax.plot(forecast_data['Date'], forecast_data['Close'], label='Original Data')
-        ax.plot(forecast_data['Date'], forecast_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+        ax.plot(data['Date'], data['Close'], label='Original Data')
+        ax.plot(data['Date'], results.fittedvalues, label='ARIMA Forecast', color='red')
         ax.set_title('ARIMA Forecast')
         ax.set_xlabel('Date')
         ax.set_ylabel('Close Price')
         ax.legend()
         st.pyplot(fig)
         
-        return forecast_data
+        return data
 
     except Exception as e:
         st.error(f"Erro ao executar previsão ARIMA: {e}")
         return None
-
 
 # Função para prever usando Prophet
 def prophet_forecast(train_data, periods=365):
