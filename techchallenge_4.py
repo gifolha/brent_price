@@ -157,11 +157,6 @@ def main():
 
     elif choice == "Previsão ARIMA":
         st.subheader("Previsão ARIMA")
-        forecast_data = arima_forecast(data)
-        if forecast_data is not None:
-            plot_time_series(forecast_data, title="Previsão ARIMA")
-    elif choice == "Previsão Prophet":
-        st.subheader("Previsão Prophet")
         st.markdown(
             """
             Fazer previsão usando o modelo ARIMA (AutoRegressive Integrated Moving Average) envolve prever valores futuros com base em padrões observados em dados históricos de uma série temporal. Para utilizar essa ferramenta:
@@ -174,6 +169,17 @@ def main():
             - Fazer previsões: Use o modelo ajustado para fazer previsões sobre os valores futuros da série temporal.
             
             O ARIMA é um modelo popular para previsão de séries temporais devido à sua simplicidade e eficácia em capturar padrões temporais em dados históricos. 
+            """
+        )
+        forecast_data = arima_forecast(data)
+        if forecast_data is not None:
+            plot_time_series(forecast_data, title="Previsão ARIMA")
+            
+    elif choice == "Previsão Prophet":
+        st.subheader("Previsão Prophet")
+        st.markdown(
+            """
+            O Prophet é especialmente útil para previsões em séries temporais que exibem tendências sazonais e feriados, pois ele pode modelar automaticamente esses padrões sem a necessidade de muita intervenção manual. Ele também lida bem com dados ausentes e outliers.
             """
         )
         forecast = prophet_forecast(data)
@@ -189,6 +195,11 @@ def main():
 
     elif choice == "Previsão LSTM":
         st.subheader("Previsão LSTM")
+        st.markdown(
+            """
+            A LSTM (Long Short-Term Memory) é um tipo de rede neural recorrente (RNN) muito utilizada em problemas de previsão em séries temporais, especialmente quando se trata de dados sequenciais com dependências temporais de longo prazo. Ela é capaz de lembrar informações por longos períodos de tempo, permitindo assim capturar padrões complexos em séries temporais.
+            """
+        )
         forecast_data = lstm_forecast(data)
         plot_time_series(forecast_data, title="Previsão LSTM")
         
