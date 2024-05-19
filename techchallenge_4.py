@@ -225,8 +225,8 @@ def main():
 
     elif choice == "Navegação":
         st.subheader("Navegação")
-        with st.container():
-            st.write(
+        container = st.container(border=True)
+            container.write(
                 """
                 Projeto #4 - Tech Challenge DATA VIZ AND PRODUCTION MODELS
             
@@ -247,6 +247,9 @@ def main():
 
                 """
             )
+
+
+
 
 if __name__ == "__main__":
     main()
