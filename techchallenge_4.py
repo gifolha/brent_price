@@ -86,6 +86,7 @@ def plot_decomposition(data):
             st.error(f"Erro ao executar previsão ARIMA: {e}")
             return None
 
+
 # Função para prever usando Prophet
 def prophet_forecast(train_data, periods=365):
     model = Prophet(daily_seasonality=True)
