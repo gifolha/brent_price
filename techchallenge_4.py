@@ -61,7 +61,7 @@ def arima_forecast(data):
         results = model.fit()
         data['Forecast_ARIMA'] = results.fittedvalues
 
-        # Plotando os dados originais e as previsões
+        # Plotando os dados originais e as previsões no mesmo gráfico
         plt.figure(figsize=(10, 6))
         plt.plot(data['Date'], data['Close'], label='Original Data')
         plt.plot(data['Date'], data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
