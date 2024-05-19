@@ -471,7 +471,7 @@ def main():
         st.markdown("Aqui está a conclusão sobre qual é o melhor modelo para previsão do preço do petróleo Brent.")
         
         # Verificando se os dados de ARIMA, LSTM e Prophet estão disponíveis
-        if arima_data is not None and lstm_data is not None and prophet_data is not None:
+        if 'arima_data' in globals() and 'lstm_data' in globals() and 'prophet_data' in globals():
             # Criando uma tabela com os resultados dos modelos
             conclusion_table = pd.DataFrame({
                 "Data": data['Date'],
@@ -488,6 +488,7 @@ def main():
             st.dataframe(conclusion_table.style.set_precision(2))
         else:
             st.error("Não foi possível gerar a conclusão devido a dados ausentes.")
+
 
     
     elif choice == "Navegação":
