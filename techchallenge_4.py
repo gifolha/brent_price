@@ -399,7 +399,6 @@ def main():
             * 2024 - momento incerto. Quedas no preço por causa das explosões do Irã - instabilidade econômica e política:
             Em meio a tensão com Israel, relatos de explosão no Irã já começaram a movimentar o mercado internacional. Os impactos econômicos do ataque próximo ao aeroporto da cidade iraniana de Isfahan, na região central do país, menos de uma semana depois de Teerã lançar um ataque em direção ao território israelense afetaram o mercado petroleiro, a cotação do dólar frente ao iene, juros dos treasuries e as bolsas da Ásia.
             A crise escala desde que a representação diplomática de Teerã em Damasco, na Síria, foi alvo do ataque que matou comandantes da Guarda Revolucionária Iraniana, no começo do mês. O Irã culpou Israel e retaliou com mais de 300 mísseis e drones no último fim de semana, elevando o risco de uma guerra aberta no Oriente Médio.
-            
             Os contratos futuros de petróleo operam em forte alta neste fim de noite, impulsionados por relatos de explosão no Irã. Na Intercontinental Exchange, o barril do petróleo Brent para junho subia às 23h37 (de Brasília) 4,10%, a USS 90,68. Na New York Mercantile Exchange (Nymex), o barril do WTI para o mesmo mês saltava 4,205, a USS 85,55.
             As explosões também alimentam uma busca por ativos de segurança no mercado financeiro internacional. As cotações do iene, dos títulos longos do Tesouro dos Estados Unidos e do ouro operam em alta forte.
             
