@@ -106,7 +106,7 @@ def lstm_forecast(data, look_back=10):
 def main():
     st.title("Predição de Séries Temporais")
 
-    menu = ["Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM"]
+    menu = ["Challenge", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     data = load_data()
