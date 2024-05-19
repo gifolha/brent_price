@@ -464,7 +464,7 @@ def main():
 
     
     elif choice == "Conclusão":
-        st.subheader("Previsões e Modelo de Machine Learning")
+        st.subheader("Comparação dos Modelos, Forecast e Conclusões")
 
     # Plotando a série temporal original
         fig, ax = plt.subplots(figsize=(15, 8))
