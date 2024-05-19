@@ -228,6 +228,7 @@ def main():
         st.markdown(
             """
             Projeto #4 - Tech Challenge DATA VIZ AND PRODUCTION MODELS
+            
             2DTAT, Maio 2024
 
             Como navegar nesse Streamlit:
