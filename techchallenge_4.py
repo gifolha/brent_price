@@ -67,22 +67,28 @@ def plot_decomposition(data):
     st.pyplot(fig)
 
 # Função para prever usando ARIMA
+# Função para prever usando ARIMA
 def arima_forecast(data):
-    model = ARIMA(data['Close'], order=(2, 1, 2))
-    results = model.fit()
-    data['Forecast_ARIMA'] = results.fittedvalues
-    
-    # Plotando os dados originais e as previsões
-    plt.figure(figsize=(10, 6))
-    plt.plot(data['Date'], data['Close'], label='Original Data')
-    plt.plot(data['Date'], data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
-    plt.title('ARIMA Forecast')
-    plt.xlabel('Date')
-    plt.ylabel('Close Price')
-    plt.legend()
-    plt.show()
-    
-    return data
+    try:
+        model = ARIMA(data['Close'], order=(2, 1, 2))
+        results = model.fit()
+        data['Forecast_ARIMA'] = results.fittedvalues
+
+        # Plotando os dados originais e as previsões
+        plt.figure(figsize=(10, 6))
+        plt.plot(data['Date'], data['Close'], label='Original Data')
+        plt.plot(data['Date'], data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+        plt.title('ARIMA Forecast')
+        plt.xlabel('Date')
+        plt.ylabel('Close Price')
+        plt.legend()
+        plt.show()
+
+        return data
+
+    except Exception as e:
+        st.error(f"Erro ao executar previsão ARIMA: {e}")
+        return None
 
 
 # Função para prever usando Prophet
