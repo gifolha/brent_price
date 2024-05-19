@@ -462,15 +462,15 @@ def main():
     
             st.write(predictions_table_styled)
 
-    
+        
     elif choice == "Conclusão":
         st.subheader("Comparação dos Modelos, Forecast e Conclusões")
-
-    # Plotando a série temporal original
+    
+        # Plotando a série temporal original
         fig, ax = plt.subplots(figsize=(15, 8))
         ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='black')
-
-    # Previsões ARIMA
+    
+        # Previsões ARIMA
         arima_data = arima_forecast(data)
         if arima_data is not None:
             ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
@@ -488,23 +488,21 @@ def main():
         ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
         ax.legend()
         st.pyplot(fig)
-
-        
     
         # Verificar se as previsões dos modelos estão disponíveis
         if arima_data is not None and lstm_data is not None and prophet_data is not None:
             # Prever os próximos 30 dias com base nos modelos ARIMA, LSTM e Prophet
             future_dates = pd.date_range(start=data['Date'].iloc[-1], periods=31, freq='D')[1:]  # Ignorar o último dia atual
-            arima_forecast = arima_forecast(data, future_dates)
-            lstm_forecast = lstm_forecast(data, future_dates)
-            prophet_forecast = prophet_forecast(data, future_dates)
-            
+            arima_future_forecast = arima_forecast(data, future_dates)
+            lstm_future_forecast = lstm_forecast(data, future_dates)
+            prophet_future_forecast = prophet_forecast(data, future_dates)
+    
             # Criar dataframe com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
             forecast_df = pd.DataFrame({
                 'Date': future_dates,
-                'ARIMA_Forecast': arima_forecast['Forecast_ARIMA'],
-                'LSTM_Forecast': lstm_forecast['Forecast_LSTM'],
-                'Prophet_Forecast': prophet_forecast['yhat']
+                'ARIMA_Forecast': arima_future_forecast['Forecast_ARIMA'],
+                'LSTM_Forecast': lstm_future_forecast['Forecast_LSTM'],
+                'Prophet_Forecast': prophet_future_forecast['yhat']
             })
     
             # Exibir tabela com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
@@ -514,6 +512,7 @@ def main():
             st.write("Não foi possível gerar a conclusão devido a dados ausentes.")
     
         
+            
 
     
     elif choice == "Navegação":
