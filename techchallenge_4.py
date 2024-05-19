@@ -75,16 +75,16 @@ def plot_decomposition(data):
         st.error(f"Erro ao executar previsão ARIMA: {e}")
         return None
 """
-    def arima_forecast(data):
-        try:
-            model = ARIMA(data['Close'], order=(2, 1, 2))
-            results = model.fit()
-            data['Forecast_ARIMA'] = results.fittedvalues
-            return data['Forecast_ARIMA']
+def arima_forecast(data):
+    try:
+        model = ARIMA(data['Close'], order=(2, 1, 2))
+        results = model.fit()
+        data['Forecast_ARIMA'] = results.fittedvalues
+        return data['Forecast_ARIMA']
 
-        except Exception as e:
-            st.error(f"Erro ao executar previsão ARIMA: {e}")
-            return None
+    except Exception as e:
+        st.error(f"Erro ao executar previsão ARIMA: {e}")
+        return None
 
 
 # Função para prever usando Prophet
