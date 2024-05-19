@@ -483,63 +483,25 @@ def main():
     
             st.write(predictions_table_styled)
 
-        
     elif choice == "Conclusão":
         st.subheader("Conclusão de qual é o melhor modelo")
     
         # Verificar se as previsões dos modelos estão disponíveis
-        if 'arima_data' in locals() and 'lstm_data' in locals() and 'prophet_data' in locals():
-            # Prever os próximos 30 dias com base nos modelos ARIMA, LSTM e Prophet
-            future_dates = pd.date_range(start=data['Date'].iloc[-1], periods=31, freq='D')[1:]  # Ignorar o último dia atual
-            arima_forecast_df = arima_forecast_future(data, future_dates)
-            lstm_forecast_df = lstm_forecast(data, future_dates)
-            prophet_forecast_df = prophet_forecast(data, future_dates)
-    
+        if 'ARIMA_Forecast' in locals() and 'LSTM_Forecast' in locals() and 'Prophet_Forecast' in locals():
             # Criar dataframe com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
             forecast_df = pd.DataFrame({
                 'Date': future_dates,
-                'ARIMA_Forecast': arima_forecast_df['Forecast_ARIMA'],
-                'LSTM_Forecast': lstm_forecast_df['Forecast_LSTM'],
-                'Prophet_Forecast': prophet_forecast_df['yhat']
+                'ARIMA_Forecast': ARIMA_Forecast,
+                'LSTM_Forecast': LSTM_Forecast,
+                'Prophet_Forecast': Prophet_Forecast
             })
     
             # Exibir tabela com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
             st.subheader("Previsões para os Próximos 30 Dias (ARIMA, LSTM e Prophet)")
             st.write(forecast_df)
-    
-            # Criando a tabela com os dados reais e as previsões
-            st.subheader("Tabela de Previsões")
-            if 'arima_data' in locals():  # Verificando se arima_data está definida localmente
-                predictions_table = pd.DataFrame({
-                    'Data': data['Date'],
-                    'Close': data['Close'],
-                    'ARIMA': arima_data['Forecast_ARIMA'],  # Usando a coluna correta do arima_data
-                    'Erro ARIMA': data['Close'] - arima_data['Forecast_ARIMA'],
-                    'LSTM': lstm_data['Forecast_LSTM'],
-                    'Erro LSTM': data['Close'] - lstm_data['Forecast_LSTM'],
-                    'Prophet': prophet_data['yhat'],
-                    'Erro Prophet': data['Close'] - prophet_data['yhat']
-                })
-    
-                # Ordenando o DataFrame pela coluna de datas em ordem decrescente
-                predictions_table = predictions_table.sort_values(by='Data', ascending=False)
-    
-                # Aplicando estilos condicionais para destacar as colunas desejadas
-                def highlight_close(val):
-                    color = 'lightgreen' if val == data['Close'].max() else 'white'
-                    return f'background-color: {color}'
-    
-                def highlight_forecast(val):
-                    color = 'lightcoral' if val != data['Close'].max() else 'white'
-                    return f'background-color: {color}'
-    
-                predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
-    
-                st.write(predictions_table_styled)
         else:
             st.write("Não foi possível gerar a conclusão devido a dados ausentes.")
-    
-        
+
         
            
         
