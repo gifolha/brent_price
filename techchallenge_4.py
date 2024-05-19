@@ -434,7 +434,7 @@ def main():
         ax.legend()
         st.pyplot(fig)
 
-        # Criando a tabela com os dados reais e as previsões
+
     # Criando a tabela com os dados reais e as previsões
         st.subheader("Tabela de Previsões")
         if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
@@ -445,6 +445,10 @@ def main():
                 'Prophet Forecast': prophet_data['yhat'],
                 'LSTM Forecast': lstm_data['Forecast_LSTM']
             })
+
+        # Ordenando o DataFrame pela coluna de datas em ordem decrescente
+            predictions_table = predictions_table.sort_values(by='Date', ascending=False)
+
             st.write(predictions_table)
 
 
