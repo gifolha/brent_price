@@ -262,10 +262,10 @@ def main():
             
             28/12/2015 10h53 - Atualizado em 28/12/2015 10h59
             
-            Petróleo operava em baixa, com o Brent sendo negociado a cerca de US$ 37 por barril, perto de uma mínima de 11 anos, sob pressão do excesso de oferta que reduziu em mais da metade o valor da commodity desde meados de 2014.
+            Petróleo operava em baixa, com o Brent sendo negociado a cerca de USS 37 por barril, perto de uma mínima de 11 anos, sob pressão do excesso de oferta que reduziu em mais da metade o valor da commodity desde meados de 2014.
             O petróleo nos EUA (WTI) era negociado próximo da paridade com o Brent, tendo registrado um prêmio no início em dezembro ante a referencial global pela primeira vez em cerca de um ano.
-            O petróleo Brent recuava US$ 0,87, ou 2,3%, a US$ 37,02 por barril, às 10:29 (horário de Brasília). O petróleo dos Estados Unidos caía US$ 1,18, ou 3,1%, a US$ 36,92 por barril.
-            O Brent registrou uma mínima de 11 anos de US$ 35,98 na última terça-feira (22/12/2015).
+            O petróleo Brent recuava USS 0,87, ou 2,3%, a USS 37,02 por barril, às 10:29 (horário de Brasília). O petróleo dos Estados Unidos caía US$ 1,18, ou 3,1%, a USS 36,92 por barril.
+            O Brent registrou uma mínima de 11 anos de USS 35,98 na última terça-feira (22/12/2015).
 
 
             Fonte: https://g1.globo.com/economia/mercados/noticia/2015/12/petroleo-brent-cai-para-cerca-de-us37-o-barril-perto-de-minima-de-11-anos.html
