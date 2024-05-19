@@ -225,12 +225,12 @@ def main():
 
     elif choice == "Navegação":
         st.subheader("Navegação")
-        container = st.container(border=True)
         st.write(
             """
             Projeto #4 - Tech Challenge DATA VIZ AND PRODUCTION MODELS
             """
         )
+        container = st.container(border=True)
         container.write(
                 """
                 Como navegar nesse Streamlit:
