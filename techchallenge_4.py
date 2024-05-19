@@ -54,7 +54,7 @@ def plot_decomposition(data):
     st.pyplot(fig)
 
 # Função para prever usando ARIMA
-def arima_forecast(data):
+"""def arima_forecast(data):
     try:
         model = ARIMA(data['Close'], order=(2, 1, 2))
         results = model.fit()
@@ -74,6 +74,17 @@ def arima_forecast(data):
     except Exception as e:
         st.error(f"Erro ao executar previsão ARIMA: {e}")
         return None
+"""
+    def arima_forecast(data):
+        try:
+            model = ARIMA(data['Close'], order=(2, 1, 2))
+            results = model.fit()
+            data['Forecast_ARIMA'] = results.fittedvalues
+            return data['Forecast_ARIMA']
+
+        except Exception as e:
+            st.error(f"Erro ao executar previsão ARIMA: {e}")
+            return None
 
 # Função para prever usando Prophet
 def prophet_forecast(train_data, periods=365):
@@ -405,7 +416,7 @@ def main():
             """
         )
 
-
+"""
     elif choice == "Previsões e Modelo de Machine Learning":
         st.subheader("Previsões e Modelo de Machine Learning")
 
@@ -431,7 +442,33 @@ def main():
         ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
         ax.legend()
         st.pyplot(fig)
+"""
 
+    elif choice == "Previsões e Modelo de Machine Learning":
+        st.subheader("Previsões e Modelo de Machine Learning")
+
+    # Plotando a série temporal original
+        fig, ax = plt.subplots(figsize=(15, 8))
+        ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='black')
+
+    # Previsões ARIMA
+        arima_data = arima_forecast(data)
+        if arima_data is not None:
+            ax.plot(data['Date'], arima_data, label='ARIMA Forecast', color='red')
+
+    # Previsões Prophet
+        prophet_data = prophet_forecast(data)
+        ax.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='blue')
+
+    # Previsões LSTM
+        lstm_data = lstm_forecast(data)
+        ax.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='green')
+
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Close Price')
+        ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
+        ax.legend()
+        st.pyplot(fig)
 
     elif choice == "Conclusão":
         st.subheader("Conclusão")
