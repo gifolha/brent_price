@@ -464,15 +464,14 @@ def main():
     
 
 
-    elif choice == "Conclusão":
-        st.subheader("Conclusão de qual é o melhor modelo")
-        
-        # Texto de conclusão
-        st.markdown("Aqui está a conclusão sobre qual é o melhor modelo para previsão do preço do petróleo Brent.")
-        
-        # Tabela de comparação dos modelos
-        st.subheader("Comparação dos Modelos")
-        
+elif choice == "Conclusão":
+    st.subheader("Conclusão de qual é o melhor modelo")
+    
+    # Texto de conclusão
+    st.markdown("Aqui está a conclusão sobre qual é o melhor modelo para previsão do preço do petróleo Brent.")
+    
+    # Verificando se os dados de ARIMA, LSTM e Prophet estão disponíveis
+    if arima_data is not None and lstm_data is not None and prophet_data is not None:
         # Criando uma tabela com os resultados dos modelos
         conclusion_table = pd.DataFrame({
             "Data": data['Date'],
@@ -487,6 +486,14 @@ def main():
         
         # Estilizando a tabela
         st.dataframe(conclusion_table.style.set_precision(2))
+    else:
+        st.error("Não foi possível gerar a conclusão devido a dados ausentes.")
+
+elif choice == "Previsões e Modelo de Machine Learning":
+    st.subheader("Previsões e Modelo de Machine Learning")
+    
+    # Aqui vai o código para essa seção
+    # ...
 
     
     elif choice == "Navegação":
