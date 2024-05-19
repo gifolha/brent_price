@@ -471,6 +471,7 @@ def main():
         ax.legend()
         st.pyplot(fig)
 
+
     elif choice == "Conclusão":
         st.subheader("Conclusão")
     
