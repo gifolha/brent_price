@@ -452,7 +452,7 @@ def main():
             st.write(predictions_table)
             
         # Criando a tabela com os dados reais e as previsões
-        st.subheader("Tabela de Previsões")
+        st.subheader("Comparando Modelos")
         if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
             predictions_table = pd.DataFrame({
                 'Data': data['Date'],
