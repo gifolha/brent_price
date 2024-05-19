@@ -86,7 +86,6 @@ def arima_forecast(data):
         st.error(f"Erro ao executar previsão ARIMA: {e}")
         return None
 
-
 # Função para prever usando Prophet
 def prophet_forecast(train_data, periods=365):
     model = Prophet(daily_seasonality=True)
@@ -428,7 +427,8 @@ def main():
     # Previsões ARIMA
         arima_data = arima_forecast(data)
         if arima_data is not None:
-            ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+            ax.plot(data['Date'], arima_data, label='ARIMA Forecast', color='red')
+
 
     # Previsões Prophet
         prophet_data = prophet_forecast(data)
@@ -443,8 +443,6 @@ def main():
         ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
         ax.legend()
         st.pyplot(fig)
-
-
 
 
     elif choice == "Conclusão":
