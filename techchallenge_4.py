@@ -52,6 +52,7 @@ def plot_time_series(data, title="Time Series"):
     ax.set_title(title)
     ax.set_xlabel('Date')
     ax.set_ylabel('Close Price')
+    return fig
 
 
 
