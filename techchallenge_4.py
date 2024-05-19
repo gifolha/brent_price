@@ -409,15 +409,16 @@ def main():
     elif choice == "Previsões e Modelo de Machine Learning":
         st.subheader("Previsões e Modelo de Machine Learning")
 
-        # Plotando a série temporal original
+    # Plotando a série temporal original
         fig, ax = plt.subplots(figsize=(15, 8))
         ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='black')
 
     # Previsões ARIMA
-        if not plt.gca().has_data():
-            arima_data = arima_forecast(data)
-            if arima_data is not None:
-                ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+        arima_data = arima_forecast(data)
+        if arima_data is not None:
+            print("ARIMA data:")
+            print(arima_data.head())  # Adicionando esta linha para depurar
+            ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
 
     # Previsões Prophet
         prophet_data = prophet_forecast(data)
@@ -432,6 +433,7 @@ def main():
         ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
         ax.legend()
         st.pyplot(fig)
+
 
 
     
