@@ -492,9 +492,9 @@ def main():
         ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='black')
         
         # Previsões ARIMA
-        arima_data = arima_forecast(data)
-        if arima_data is not None:
-            ax.plot(arima_data['Date'], arima_data['Forecast'], label='ARIMA Forecast', color='red')
+        arima_future_forecast = arima_forecast_future(data, future_dates)
+        if arima_future_forecast is not None:
+            ax.plot(arima_future_forecast['Date'], arima_future_forecast['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
         
         # Previsões Prophet
         prophet_data = prophet_forecast(data)
