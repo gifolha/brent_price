@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -11,29 +10,8 @@ from keras.layers import LSTM, Dense
 from sklearn.preprocessing import MinMaxScaler
 import yfinance as yf
 
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
-import plotly.graph_objects as go
-import yfinance as yf
-from statsmodels.tsa.stattools import adfuller, acf, pacf
-from statsmodels.tsa.seasonal import seasonal_decompose
-from statsmodels.tsa.arima.model import ARIMA
-from keras.models import Sequential
-from keras.layers import LSTM, Dense, Dropout
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.preprocessing.sequence import TimeseriesGenerator
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn.model_selection import train_test_split
-from prophet import Prophet
-import warnings
-warnings.filterwarnings('ignore')
-
-
 # Função para carregar dados
 @st.cache
-
 def load_data():
     symbol = 'BZ=F'
     start_date = '1987-05-20'
@@ -46,15 +24,12 @@ def load_data():
 
 # Função para plotar série temporal
 def plot_time_series(data, title="Time Series"):
-    print(data.columns)  # Verifica as colunas presentes no DataFrame
     fig, ax = plt.subplots(figsize=(15, 10))
     ax.plot(data['Date'], data['Close'], label='Close')
     ax.set_title(title)
     ax.set_xlabel('Date')
     ax.set_ylabel('Close Price')
-    return fig
-
-
+    st.pyplot(fig)
 
 # Função para decompor série temporal
 def plot_decomposition(data):
@@ -67,7 +42,6 @@ def plot_decomposition(data):
     plt.tight_layout()
     st.pyplot(fig)
 
-# Função para prever usando ARIMA
 # Função para prever usando ARIMA
 def arima_forecast(data):
     try:
@@ -83,14 +57,12 @@ def arima_forecast(data):
         plt.xlabel('Date')
         plt.ylabel('Close Price')
         plt.legend()
-        plt.show()
-
+        st.pyplot(plt.gcf())  # Usando plt.gcf() para obter a figura atual
         return data
 
     except Exception as e:
         st.error(f"Erro ao executar previsão ARIMA: {e}")
         return None
-
 
 # Função para prever usando Prophet
 def prophet_forecast(train_data, periods=365):
@@ -154,7 +126,8 @@ def main():
     elif choice == "Previsão ARIMA":
         st.subheader("Previsão ARIMA")
         forecast_data = arima_forecast(data)
-        plot_time_series(forecast_data, title="Previsão ARIMA")
+        if forecast_data is not None:
+            plot_time_series(forecast_data, title="Previsão ARIMA")
     elif choice == "Previsão Prophet":
         st.subheader("Previsão Prophet")
         forecast = prophet_forecast(data)
