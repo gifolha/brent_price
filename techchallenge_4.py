@@ -471,6 +471,9 @@ def main():
         st.markdown("Aqui está a conclusão sobre qual é o melhor modelo para previsão do preço do petróleo Brent.")
         
         # Verificando se os dados de ARIMA, LSTM e Prophet estão disponíveis
+        arima_data = arima_forecast(data)
+        lstm_data = lstm_forecast(data)
+        prophet_data = prophet_forecast(data)
         if 'arima_data' in globals() and 'lstm_data' in globals() and 'prophet_data' in globals():
             # Criando uma tabela com os resultados dos modelos
             conclusion_table = pd.DataFrame({
