@@ -71,7 +71,19 @@ def arima_forecast(data):
     model = ARIMA(data['Close'], order=(2, 1, 2))
     results = model.fit()
     data['Forecast_ARIMA'] = results.fittedvalues
+    
+    # Plotando os dados originais e as previsões
+    plt.figure(figsize=(10, 6))
+    plt.plot(data['Date'], data['Close'], label='Original Data')
+    plt.plot(data['Date'], data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+    plt.title('ARIMA Forecast')
+    plt.xlabel('Date')
+    plt.ylabel('Close Price')
+    plt.legend()
+    plt.show()
+    
     return data
+
 
 # Função para prever usando Prophet
 def prophet_forecast(train_data, periods=365):
