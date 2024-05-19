@@ -537,6 +537,23 @@ def main():
     
         st.write(predictions_table_styled)
     
+        # Criando a tabela com as previsões para as datas futuras
+        st.subheader("Previsões para 01/05/2024 até 30/06/2024")
+        future_dates = pd.date_range(start='2024-05-01', end='2024-06-30')
+        arima_forecast_df = arima_forecast_future(data, future_dates)
+        lstm_forecast_df = lstm_forecast(data, future_dates)
+        prophet_forecast_df = prophet_forecast(data, future_dates)
+    
+        future_forecast_table = pd.DataFrame({
+            'Data': future_dates,
+            'ARIMA': arima_forecast_df['Forecast_ARIMA'],
+            'LSTM': lstm_forecast_df['Forecast_LSTM'],
+            'Prophet': prophet_forecast_df['yhat']
+        })
+    
+        st.write(future_forecast_table)
+
+    
        
         
     elif choice == "Navegação":
