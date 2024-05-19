@@ -59,19 +59,20 @@ def arima_forecast(data):
     try:
         model = ARIMA(data['Close'], order=(2, 1, 2))
         results = model.fit()
-        data['Forecast_ARIMA'] = results.fittedvalues
+        forecast_data = data.copy()  # Criando uma cópia do DataFrame
+        forecast_data['Forecast_ARIMA'] = results.fittedvalues
 
         # Plotando os dados originais e as previsões no mesmo eixo
         fig, ax = plt.subplots(figsize=(10, 6))
-        ax.plot(data['Date'], data['Close'], label='Original Data')
-        ax.plot(data['Date'], data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+        ax.plot(forecast_data['Date'], forecast_data['Close'], label='Original Data')
+        ax.plot(forecast_data['Date'], forecast_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
         ax.set_title('ARIMA Forecast')
         ax.set_xlabel('Date')
         ax.set_ylabel('Close Price')
         ax.legend()
         st.pyplot(fig)
         
-        return data
+        return forecast_data
 
     except Exception as e:
         st.error(f"Erro ao executar previsão ARIMA: {e}")
