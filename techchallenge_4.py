@@ -50,7 +50,8 @@ def plot_decomposition(data):
     ax4.set_title('Resíduos')
 
     plt.tight_layout()
-    st.pyplot(fig, caption="Decomposição da série temporal")
+    st.markdown("### Decomposição da série temporal")
+    st.pyplot(fig)
 
 
 # Função para prever usando ARIMA
