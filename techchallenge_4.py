@@ -150,5 +150,5 @@ def main():
         forecast_data = lstm_forecast(data)
         plot_time_series(forecast_data, title="Previsão LSTM")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
