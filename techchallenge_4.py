@@ -54,7 +54,7 @@ def plot_decomposition(data):
     st.pyplot(fig)
 
 # Função para prever usando ARIMA
-"""def arima_forecast(data):
+def arima_forecast(data):
     try:
         model = ARIMA(data['Close'], order=(2, 1, 2))
         results = model.fit()
@@ -70,17 +70,6 @@ def plot_decomposition(data):
         plt.legend()
         st.pyplot(plt.gcf())  # Usando plt.gcf() para obter a figura atual
         return data
-
-    except Exception as e:
-        st.error(f"Erro ao executar previsão ARIMA: {e}")
-        return None
-"""
-def arima_forecast(data):
-    try:
-        model = ARIMA(data['Close'], order=(2, 1, 2))
-        results = model.fit()
-        data['Forecast_ARIMA'] = results.fittedvalues
-        return data['Forecast_ARIMA']
 
     except Exception as e:
         st.error(f"Erro ao executar previsão ARIMA: {e}")
