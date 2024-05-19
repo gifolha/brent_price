@@ -32,19 +32,26 @@ def plot_time_series(data, title="Time Series"):
     st.pyplot(fig)
 
 # Função para decompor série temporal
+
 def plot_decomposition(data):
     result = seasonal_decompose(data['Close'], model='multiplicative', period=7)
     fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(15, 8))
-    st.markdown("Série Real")
-    result.observed.plot(ax=ax1)
-    st.markdown("Tendência")
-    result.trend.plot(ax=ax2)
-    st.markdown("Sazonalidade")
-    result.seasonal.plot(ax=ax3)
-    st.markdown("Resíduos")
-    result.resid.plot(ax=ax4)
+    
+    ax1.plot(result.observed)
+    ax1.set_title('Série Real')
+    
+    ax2.plot(result.trend)
+    ax2.set_title('Tendência')
+    
+    ax3.plot(result.seasonal)
+    ax3.set_title('Sazonalidade')
+    
+    ax4.plot(result.resid)
+    ax4.set_title('Resíduos')
+
     plt.tight_layout()
-    st.pyplot(fig)
+    st.pyplot(fig, caption="Decomposição da série temporal")
+
 
 # Função para prever usando ARIMA
 def arima_forecast(data):
