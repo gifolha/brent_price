@@ -144,6 +144,14 @@ def main():
         st.subheader("Previsão LSTM")
         forecast_data = lstm_forecast(data)
         plot_time_series(forecast_data, title="Previsão LSTM")
+        
+    elif choice == "Challenge":
+        st.subheader("Challenge")
+        # Adicione aqui qualquer informação ou análise adicional que você queira mostrar na aba "Challenge"
+        st.write("Aqui você pode adicionar informações sobre o seu desafio ou qualquer outra análise de dados.")
+        # Exemplo de exibição de informações adicionais
+        st.write("Informações adicionais podem ser adicionadas aqui, como gráficos, tabelas ou texto.")
+
 
 if __name__ == "__main__":
     main()
