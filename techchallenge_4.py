@@ -490,70 +490,30 @@ def main():
         st.pyplot(fig)
 
         
+    
         # Verificar se as previsões dos modelos estão disponíveis
-        if arima_data is not None and lstm_data is not None:
-            # Função para criar previsões fictícias para o ARIMA
-            def arima_forecast_next_30_days():
-                # Gere previsões fictícias para os próximos 30 dias
-                dates = pd.date_range(start='2024-06-01', periods=30, freq='D')
-                forecast_values = np.random.uniform(low=50, high=100, size=(30,))
-                arima_forecast_df = pd.DataFrame({'Date': dates, 'ARIMA_Forecast': forecast_values})
-                return arima_forecast_df
+        if arima_data is not None and lstm_data is not None and prophet_data is not None:
+            # Prever os próximos 30 dias com base nos modelos ARIMA, LSTM e Prophet
+            future_dates = pd.date_range(start=data['Date'].iloc[-1], periods=31, freq='D')[1:]  # Ignorar o último dia atual
+            arima_forecast = arima_forecast(data, future_dates)
+            lstm_forecast = lstm_forecast(data, future_dates)
+            prophet_forecast = prophet_forecast(data, future_dates)
+            
+            # Criar dataframe com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
+            forecast_df = pd.DataFrame({
+                'Date': future_dates,
+                'ARIMA_Forecast': arima_forecast['Forecast_ARIMA'],
+                'LSTM_Forecast': lstm_forecast['Forecast_LSTM'],
+                'Prophet_Forecast': prophet_forecast['yhat']
+            })
     
-            # Função para criar previsões fictícias para o LSTM
-            def lstm_forecast_next_30_days():
-                # Gere previsões fictícias para os próximos 30 dias
-                dates = pd.date_range(start='2024-06-01', periods=30, freq='D')
-                forecast_values = np.random.uniform(low=50, high=100, size=(30,))
-                lstm_forecast_df = pd.DataFrame({'Date': dates, 'LSTM_Forecast': forecast_values})
-                return lstm_forecast_df
-    
-            # Criar previsões fictícias para ARIMA e LSTM
-            arima_data_next_30_days = arima_forecast_next_30_days()
-            lstm_data_next_30_days = lstm_forecast_next_30_days()
-    
-            # Exibir tabela com as previsões dos próximos 30 dias para ARIMA e LSTM
-            st.subheader("Previsões para os Próximos 30 Dias (ARIMA e LSTM)")
-            st.write("Previsões do modelo ARIMA:")
-            st.write(arima_data_next_30_days)
-            st.write("Previsões do modelo LSTM:")
-            st.write(lstm_data_next_30_days)
+            # Exibir tabela com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
+            st.subheader("Previsões para os Próximos 30 Dias (ARIMA, LSTM e Prophet)")
+            st.write(forecast_df)
         else:
             st.write("Não foi possível gerar a conclusão devido a dados ausentes.")
     
-    
-
-        # Criando a tabela com os dados reais e as previsões
-        st.subheader("Tabela de Previsões")
-        if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
-            predictions_table = pd.DataFrame({
-                'Data': data['Date'],
-                'Close': data['Close'],
-                'ARIMA': arima_data['Forecast_ARIMA'],  # Usando a coluna correta do arima_data
-                'Erro ARIMA': data['Close'] - arima_data['Forecast_ARIMA'],
-                'LSTM': lstm_data['Forecast_LSTM'],
-                'Erro LSTM': data['Close'] - lstm_data['Forecast_LSTM'],
-                'Prophet': prophet_data['yhat'],
-                'Erro Prophet': data['Close'] - prophet_data['yhat']
-            })
-    
-            # Ordenando o DataFrame pela coluna de datas em ordem decrescente
-            predictions_table = predictions_table.sort_values(by='Data', ascending=False)
-    
-            # Aplicando estilos condicionais para destacar as colunas desejadas
-            def highlight_close(val):
-                color = 'lightgreen' if val == data['Close'].max() else 'white'
-                return f'background-color: {color}'
-    
-            def highlight_forecast(val):
-                color = 'lightcoral' if val != data['Close'].max() else 'white'
-                return f'background-color: {color}'
-    
-            predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
-    
-            st.write(predictions_table_styled)
-
-    
+        
 
     
     elif choice == "Navegação":
