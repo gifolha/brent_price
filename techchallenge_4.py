@@ -225,7 +225,9 @@ def main():
         container = st.container(border=True)
         container.write(
             """
-            *2008, o ano em que o petróleo enlouqueceu o mercado:*
+            * *2008, o ano em que o petróleo enlouqueceu o mercado:*
+
+            31/12/08 - 12h33 - Atualizado em 31/12/08 - 12h35
             
             O mercado do petróleo viveu em 2008 um drama em dois atos, marcado pela superação da barreira dos 100 dólares o barril e uma disparada meteórica dos preços até 147,50 dólares.
             Depois disso, os preços começaram a despencar mais rapidamente do que haviam subido, ficando a 39,35 dólares em Londres, no início de dezembro.
@@ -239,7 +241,9 @@ def main():
         )
         container.write(
             """
-            *Brent cai abaixo de US$90; tem menor nível desde 2010:*
+            * *Brent cai abaixo de US$90; tem menor nível desde 2010:*
+
+            Publicado em 10 de outubro de 2014 às 10h13.
             
             Arábia Saudita disse que elevou a produção no mês passado, aumentando especulação sobre uma guerra de preços na Organização dos Países Exportadores de Petróleo.
             O petróleo Brent diminuiu para o menor patamar desde 2010, operando abaixo de 90 dólares o barril, após a Arábia Saudita dizer que elevou a produção, aumentando especulação sobre uma guerra de preços na Organização dos Países Exportadores de Petróleo (Opep), levantando dúvidas se o maior exportador do mundo estará preparado para tomar medidas unilaterais.
@@ -249,6 +253,113 @@ def main():
             
             
             Fonte: https://exame.com/economia/brent-cai-abaixo-de-us-90-tem-menor-nivel-desde-2010/
+
+            """
+        )
+        container.write(
+            """
+            * *Petróleo Brent cai para cerca de US$ 37 o barril, perto de mínima de 11 anos* 
+            
+            28/12/2015 10h53 - Atualizado em 28/12/2015 10h59
+            
+            Petróleo operava em baixa, com o Brent sendo negociado a cerca de US$ 37 por barril, perto de uma mínima de 11 anos, sob pressão do excesso de oferta que reduziu em mais da metade o valor da commodity desde meados de 2014.
+            O petróleo nos EUA (WTI) era negociado próximo da paridade com o Brent, tendo registrado um prêmio no início em dezembro ante a referencial global pela primeira vez em cerca de um ano.
+            O petróleo Brent recuava US$ 0,87, ou 2,3%, a US$ 37,02 por barril, às 10:29 (horário de Brasília). O petróleo dos Estados Unidos caía US$ 1,18, ou 3,1%, a US$ 36,92 por barril.
+            O Brent registrou uma mínima de 11 anos de US$ 35,98 na última terça-feira (22/12/2015).
+
+
+            Fonte: https://g1.globo.com/economia/mercados/noticia/2015/12/petroleo-brent-cai-para-cerca-de-us37-o-barril-perto-de-minima-de-11-anos.html
+            
+            """
+        )
+        container.write(
+            """
+            * *Petróleo fecha no nível mais alto em quatro anos*
+            
+            24/09/2018 07h52  Atualizado há 5 anos
+            
+            O preço do petróleo Brent alcançou seu nível mais alto em quatro anos, após a decisão da Opep e de seus sócios de não aumentar a produção apesar das pressões de Donald Trump. A cotação do Brent do Mar do Norte subiu US$ 2,40, ou 3,1%, a US$ 81,20 o barril, depois de chegar na máxima a US$ 81,39, segundo a agência Reuters.
+            O petróleo dos EUA (WTI) teve alta de US$ 1,30, ou 1,8%, a US$ 72,08 o barril.
+            Apesar da elevação, o preço do barril do Brent ainda está longe de sua máxima histórica. Em julho de 2008, o barril chegou a ser negociado a US$ 145,61.
+            
+            O barril do petróleo Brent chegou a US$ 80 neste mês, levando Trump a reiterar seu pedido para que a Opep baixasse os preços. A alta das cotações foi contida principalmente por uma queda nas exportações do Irã, membro da Opep, devido ao restabelecimento de sanções dos EUA.
+            "Nós protegemos os países do Oriente Médio, eles não estariam seguros por muito tempo sem nós e, ainda assim, eles continuam incentivando preços cada vez mais altos para o petróleo. Nós lembraremos disso. O monopólio da Opep deve baixar os preços agora!", escreveu Trump em sua conta no Twitter.
+            O ministro da Energia saudita, Khalid al-Falih disse que a Arábia Saudita tinha capacidade para aumentar a produção de petróleo, mas que a medida não seria necessária no momento. "A minha informação é que os mercados estão sendo adequadamente abastecidos. Não sei de nenhuma refinaria no mundo que esteja precisando de petróleo e não esteja conseguindo", afirmou.
+            A alta do petróleo também tem sido sustentada pela perspectiva de menores exportações do Irã, terceiro maior produtor da Opep, devido a sanções dos EUA.
+            Segundo tradings de commodities, os preços do petróleo podem subir para 100 dólares o barril ao final do ano ou no início de 2019 com o impacto de sanções ao Irã.
+            
+            
+            Fonte: https://g1.globo.com/economia/noticia/2018/09/24/petroleo-sobe-para-quase-us-81-nivel-mais-alto-em-4-anos.ghtml
+
+            """
+        )
+        container.write(
+            """
+            * *Pandemia faz preço do barril de petróleo fechar ano 20% mais barato*
+
+            31.dez.2020 (quinta-feira) – 18h53
+            Atualizado: 7.jan.2021 (quinta-feira) – 22h41
+
+            O barril do petróleo encerrou 2020 mais barato do que começou. Os contratos futuros do petróleo Brent fecharam dia 31 dez 2020 em 51.80, uma queda de 21,5% em comparação ao preço de 2019 (66). A desvalorização do insumo eh uma das marcas de um ano difícil para o setor petroleiro. Levantamento divulgado pelo The Wall Street Jornal mostra que o segmento sofreu depreciação de aproximadamente 145 bilhões nos 3 primeiros trimestres de 2020.
+            A redução pela demanda em consequência do isolamento social – principal medida para evitar a disseminação do novo coronavírus – e seus impactos econômicos foram sentidos, principalmente, em fevereiro na Europa e em marco nos Estados Unidos. Na comparação dos fechamentos anuais, porém, observasse que a tendencia não eh de alta equivalente a do inicio da década.
+            Segundo o presidente da Inter B consultoria, isso se explica em parte pelo processo de transição energética. O que significa uma crescente busca por fontes de energia limpas, em especial a 
+
+
+            Fonte: https://www.poder360.com.br/economia/pandemia-faz-preco-do-barril-de-petroleo-fechar-ano-20-mais-barato/#:~:text=O%20barril%20do%20petr%C3%B3leo%20encerrou,US%24%2066%2C00
+            
+            """
+        )
+        container.write(
+            """
+            * *Petróleo encerra o ano em alta superior a 21%, no maior valor em quase 10 anos*
+
+            30/12/2022 17h51  Atualizado há um ano
+            
+            Os preços do petróleo fecharam o último pregão do ano em alta em um movimento de reposicionamento em um dia de baixa liquidez, que sempre acaba por provocar movimentos mais fortes. As cotações também se recuperam depois dos recuos registrados ontem depois que estoques americanos se mostraram maiores que o esperado. No ano, o petróleo terminou acumulando ganhos expressivos: o Brent (referência mundial) saltou 21,13% enquanto o WTI (referência norte-americana) subiu 12,80% em 2022.
+            Considerando os preços de fechamento anuais, este é o maior valor para o Brent e para o WTI desde 2013, quando o barril alcançou US$ 109,95 e US$ 98,17, respectivamente, numa sequência de altas anuais em função das ondas revolucionárias no Oriente Médio (conhecida como a Primavera Árabe), já que a guerra civil paralisou a atividade econômica - inclusive as exportações de petróleo - nesses países.
+            
+            No período de 2010 a 2013, o mundo também atravessou o aumento da demanda mundial pela commodity com o reaquecimento das economias após a crise de 2008.
+            Nesta sexta-feira (30), os futuros do Brent para março subiram 2,93% a US$ 85,91 enquanto os futuros do WTI para fevereiro fecharam em alta de 2,4% a US$80,26. Apesar dos ganhos significativos no ano, os preços terminam 2022 bem longe dos mais de US$ 120 por barril registrados durante o pico da crise da guerra da Ucrânia.
+            “Embora os fundamentos para o petróleo permaneçam fortes, a percepção de destruição de demanda provocada pelo aumento dos casos de covid na China e pela alta dos juros dos EUA deixarão muitos investidores de lado no início do ano”, afirmaram os analistas do BOK Financial, em nota.
+            “Enquanto os produtores finalmente atingiram a demanda pós-pandêmica, outros riscos permanecem no próximo ano, principalmente em relação à produção russa em meio ao novo teto de preço e suas ameaças de cortar a produção e não fornecer a nenhum país que o cumpra. Isso não é um problema agora, mas se os preços começarem a subir, isso pode acelerar o movimento rapidamente”, disse o analista da Oanda, Craig Erlam.
+            
+            
+            Fonte: https://valorinveste.globo.com/mercados/internacional-e-commodities/noticia/2022/12/30/petroleo-encerra-o-ano-em-alta-superior-a-21percent-no-maior-valor-em-quase-10-anos.ghtml
+
+            """
+        )
+        container.write(
+            """
+            * *Petróleo cai ao menor nível desde 2021*
+
+            15.mar.2023 (quarta-feira) - 13h19
+
+            O preço do barril de petróleo tipo Brent cai 5,72 nesta 4ª feira (15 mar 2023) puxado pela expectativa de menor demanda pelo consumo do mundo. Há duvidas sobre o rumo do setor financeiro global depois das falências dos bancos Silicon Valley Bank e Signature Bank nos Estados Unidos.
+            
+            FALÊNCIA DE BANCOS NOS EUA 
+            O Departamento de Proteção Financeira e Inovação da Califórnia anunciou na 6ª feira (10.mar) o fechamento do SVB (Silicon Valley Bank). No domingo (12.mar.2023), o Signature Bank encerrou as atividades. O SVB informou na 4ª feira (8.mar) que havia liquidado US$ 21 bilhões em títulos, com US$ 1,8 bilhão em prejuízo no 1º trimestre de 2023. Também estudava a venda de US$ 1,7 bilhão em ações. 
+            Houve uma corrida de clientes para sacar os depósitos do banco. Esses recursos retirados estavam investidos em outros ativos, de menor liquidez. Ou seja, a instituição não conseguiu atender aos pedidos de saques. O Fed (Federal Reserve, o Banco Central dos EUA) disse que vai restituir os clientes com depósitos no banco. Reservou US$ 25 bilhões para os pagamentos através de um fundo de garantia do Tesouro.
+
+            Fonte: https://www.poder360.com.br/economia/petroleo-cai-ao-menor-nivel-desde-2021/
+
+            """
+        )
+        container.write(
+            """
+            * *Petróleo sobe e bolsas da Ásia têm queda após explosão no Irã; veja os impactos econômicos*
+
+            Publicado em 19/04/2024 às 09h39
+            
+            Em meio a tensão com Israel, relatos de explosão foram ouvidos próximo ao aeroporto da cidade iraniana de Isfahan na noite desta quinta-feira, 18
+            Em meio a tensão com Israel, relatos de explosão no Irã na noite desta quinta-feira, 18, já começaram a movimentar o mercado internacional. Os impactos econômicos do ataque próximo ao aeroporto da cidade iraniana de Isfahan, na região central do país, menos de uma semana depois de Teerã lançar um ataque em direção ao território israelense afetaram o mercado petroleiro, a cotação do dólar frente ao iene, juros dos treasuries e as bolsas da Ásia.
+            Autoridades militares israelenses disseram ao The New York Times que o país atingiu o Irã, mas nem o Exército, nem o governo se pronunciaram oficialmente.
+            A crise escala desde que a representação diplomática de Teerã em Damasco, na Síria, foi alvo do ataque que matou comandantes da Guarda Revolucionária Iraniana, no começo do mês. O Irã culpou Israel e retaliou com mais de 300 mísseis e drones no último fim de semana, elevando o risco de uma guerra aberta no Oriente Médio.
+            
+            Os contratos futuros de petróleo operam em forte alta neste fim de noite, impulsionados por relatos de explosão no Irã. Na Intercontinental Exchange, o barril do petróleo Brent para junho subia às 23h37 (de Brasília) 4,10%, a US$ 90,68. Na New York Mercantile Exchange (Nymex), o barril do WTI para o mesmo mês saltava 4,205, a US$ 85,55.
+            As explosões também alimentam uma busca por ativos de segurança no mercado financeiro internacional. As cotações do iene, dos títulos longos do Tesouro dos Estados Unidos e do ouro operam em alta forte.
+            
+            
+            Fonte: https://www.udop.com.br/noticia/2024/04/19/petroleo-sobe-e-bolsas-da-asia-tem-queda-apos-explosao-no-ira-veja-os-impactos-econ-ocirc-micos.html
 
             """
         )
