@@ -113,10 +113,20 @@ def main():
 
     if choice == "Carregar Dados":
         st.subheader("Carregar Dados")
+        st.markdown(
+            """
+            Carregando os dados utilizando a Biblioteca Yahoo Finance. Os dados obtidos utilizando esta biblioteca entregam mais colunas que necessário. Neste caso, estaremos analisando as colunas de 'CLOSE' e 'DATE'.
+            """
+        )
         st.write(data)
 
     elif choice == "Visualizar Dados":
         st.subheader("Visualizar Dados")
+        st.markdown(
+            """
+            Visualização histórica dos dados com a variação de preço no decorrer do tempo. Os dados começam em 30 de Junho de 2007.
+            """
+        )
         plot_time_series(data)
 
     elif choice == "Decomposição":
