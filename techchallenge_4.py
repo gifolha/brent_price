@@ -416,8 +416,6 @@ def main():
     # Previsões ARIMA
         arima_data = arima_forecast(data)
         if arima_data is not None:
-            print("ARIMA data:")
-            print(arima_data.head())  # Adicionando esta linha para depurar
             ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
 
     # Previsões Prophet
@@ -434,9 +432,6 @@ def main():
         ax.legend()
         st.pyplot(fig)
 
-
-
-    
 
     elif choice == "Conclusão":
         st.subheader("Conclusão")
