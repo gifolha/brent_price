@@ -226,12 +226,13 @@ def main():
     elif choice == "Navegação":
         st.subheader("Navegação")
         container = st.container(border=True)
+        st.title(
+            """
+            Projeto #4 - Tech Challenge DATA VIZ AND PRODUCTION MODELS
+            """
+        )
         container.write(
                 """
-                Projeto #4 - Tech Challenge DATA VIZ AND PRODUCTION MODELS
-            
-                2DTAT, Maio 2024
-
                 Como navegar nesse Streamlit:
 
                 Você está na aba "Navegação"!
