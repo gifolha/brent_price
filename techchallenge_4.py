@@ -33,13 +33,16 @@ warnings.filterwarnings('ignore')
 
 # Função para carregar dados
 @st.cache
+
 def load_data():
     symbol = 'BZ=F'
     start_date = '1987-05-20'
     end_date = '2024-05-20'
     df = yf.download(symbol, start=start_date, end=end_date)
     df['Date'] = pd.to_datetime(df.index)
-    return df.reset_index(drop=True)
+    # Clonar o DataFrame para evitar mutação
+    cloned_df = df.copy()
+    return cloned_df.reset_index(drop=True)
 
 # Função para plotar série temporal
 def plot_time_series(data, title="Time Series"):
