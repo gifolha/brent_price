@@ -350,7 +350,6 @@ def main():
 
             Publicado em 19/04/2024 às 09h39
             
-            Em meio a tensão com Israel, relatos de explosão foram ouvidos próximo ao aeroporto da cidade iraniana de Isfahan na noite desta quinta-feira, 18
             Em meio a tensão com Israel, relatos de explosão no Irã na noite desta quinta-feira, 18, já começaram a movimentar o mercado internacional. Os impactos econômicos do ataque próximo ao aeroporto da cidade iraniana de Isfahan, na região central do país, menos de uma semana depois de Teerã lançar um ataque em direção ao território israelense afetaram o mercado petroleiro, a cotação do dólar frente ao iene, juros dos treasuries e as bolsas da Ásia.
             Autoridades militares israelenses disseram ao The New York Times que o país atingiu o Irã, mas nem o Exército, nem o governo se pronunciaram oficialmente.
             A crise escala desde que a representação diplomática de Teerã em Damasco, na Síria, foi alvo do ataque que matou comandantes da Guarda Revolucionária Iraniana, no começo do mês. O Irã culpou Israel e retaliou com mais de 300 mísseis e drones no último fim de semana, elevando o risco de uma guerra aberta no Oriente Médio.
@@ -369,7 +368,41 @@ def main():
         st.image('resumo.png', caption='Insights Baseados No Histórico Geopolítico')
         st.write(
             """
-            x
+            * Crise de 2008: 
+            Tensões geopolíticas, do Irã à Nigéria passando pelo Paquistão; o equilíbrio tenso entre uma oferta limitada e uma demanda puxada pelos países emergentes; a conscientização de que as reservas são limitadas e de acesso cada vez mais difícil; uma febre dos fundos de investimento por matérias-primas.
+            Depois da falência do banco americano Lehman Brothers em setembro, esta lógica se inverte. Temendo a deflação, os investidores abandonam o petróleo, porque precisam urgentemente de liquidez.
+
+            * Menores preços em 2010 devido a Arábia Saudita ter aumentado a produção:
+            O petróleo Brent diminuiu para o menor patamar desde 2010, operando abaixo de 90 dólares o barril, após a Arábia Saudita dizer que elevou a produção, aumentando especulação sobre uma guerra de preços na Organização dos Países Exportadores de Petróleo (Opep), levantando dúvidas se o maior exportador do mundo estará preparado para tomar medidas unilaterais.
+            A produção de petróleo também tem aumentado em outros países membros da Opep, como Iraque e Líbia, disse o grupo em seu relatório mensal de mercado nesta sexta-feira, apesar da violência e da instabilidade em ambos os países.
+
+            * 2010-2013 período que aumentou a demanda mundial pela commodity, reaquecimento do mercado após 2008:
+            No período de 2010 a 2013, o mundo atravessou o aumento da demanda mundial pela commodity com o reaquecimento das economias após a crise de 2008.
+           
+            * Menor preço do Brent em 10 anos (2015) - excesso de oferta que reduziu mais da metade do preço da commodity desde meados de 2014:
+            Petróleo operava em baixa, com o Brent sendo negociado a cerca de USS 37 por barril, perto de uma mínima de 11 anos, sob pressão do excesso de oferta que reduziu em mais da metade o valor da commodity desde meados de 2014.
+
+            * Brent chega ao maior preço em 5 anos (2018) Opep não quis aumentar da pressão do governo americano:
+            O preço do petróleo Brent alcançou seu nível mais alto em quatro anos, após a decisão da Opep e de seus sócios de não aumentar a produção apesar das pressões de Donald Trump. 
+
+            * Brent diminui por causa da pandemia:
+            O barril do petróleo encerrou 2020 mais barato do que começou. Os contratos futuros do petróleo Brent fecharam dia 31 dez 2020 em 51.80 dólares, uma queda de 21,5% em comparação ao preço de 2019 (66 dólares). A desvalorização do insumo eh uma das marcas de um ano difícil para o setor petroleiro. Levantamento divulgado pelo The Wall Street Jornal mostra que o segmento sofreu depreciação de aproximadamente 145 bilhões nos 3 primeiros trimestres de 2020.
+            A redução pela demanda em consequência do isolamento social – principal medida para evitar a disseminação do novo coronavírus – e seus impactos econômicos foram sentidos, principalmente, em fevereiro na Europa e em marco nos Estados Unidos. Na comparação dos fechamentos anuais, porém, observasse que a tendencia não eh de alta equivalente a do inicio da década.
+            Segundo o presidente da Inter B consultoria, isso se explica em parte pelo processo de transição energética. O que significa uma crescente busca por fontes de energia limpas, em especial a 
+
+            * Petróleo em Alta, maior valor em 10 anos (2022):
+            No período de 2010 a 2013, o mundo também atravessou o aumento da demanda mundial pela commodity com o reaquecimento das economias após a crise de 2008.
+            Nesta sexta-feira (30), os futuros do Brent para março subiram 2,93% a US$ 85,91 enquanto os futuros do WTI para fevereiro fecharam em alta de 2,4% a USS80,26. Apesar dos ganhos significativos no ano, os preços terminam 2022 bem longe dos mais de USS 120 por barril registrados durante o pico da crise da guerra da Ucrânia.
+            “Embora os fundamentos para o petróleo permaneçam fortes, a percepção de destruição de demanda provocada pelo aumento dos casos de covid na China e pela alta dos juros dos EUA deixarão muitos investidores de lado no início do ano”, afirmaram os analistas do BOK Financial, em nota.
+            “Enquanto os produtores finalmente atingiram a demanda pós-pandêmica, outros riscos permanecem no próximo ano, principalmente em relação à produção russa em meio ao novo teto de preço e suas ameaças de cortar a produção e não fornecer a nenhum país que o cumpra. Isso não é um problema agora, mas se os preços começarem a subir, isso pode acelerar o movimento rapidamente”, disse o analista da Oanda, Craig Erlam.
+
+            * 2024 - momento incerto. Quedas no preço por causa das explosões do Irã - instabilidade econômica e política:
+            Em meio a tensão com Israel, relatos de explosão no Irã já começaram a movimentar o mercado internacional. Os impactos econômicos do ataque próximo ao aeroporto da cidade iraniana de Isfahan, na região central do país, menos de uma semana depois de Teerã lançar um ataque em direção ao território israelense afetaram o mercado petroleiro, a cotação do dólar frente ao iene, juros dos treasuries e as bolsas da Ásia.
+            A crise escala desde que a representação diplomática de Teerã em Damasco, na Síria, foi alvo do ataque que matou comandantes da Guarda Revolucionária Iraniana, no começo do mês. O Irã culpou Israel e retaliou com mais de 300 mísseis e drones no último fim de semana, elevando o risco de uma guerra aberta no Oriente Médio.
+            
+            Os contratos futuros de petróleo operam em forte alta neste fim de noite, impulsionados por relatos de explosão no Irã. Na Intercontinental Exchange, o barril do petróleo Brent para junho subia às 23h37 (de Brasília) 4,10%, a USS 90,68. Na New York Mercantile Exchange (Nymex), o barril do WTI para o mesmo mês saltava 4,205, a USS 85,55.
+            As explosões também alimentam uma busca por ativos de segurança no mercado financeiro internacional. As cotações do iene, dos títulos longos do Tesouro dos Estados Unidos e do ouro operam em alta forte.
+            
             """
         )
 
@@ -390,7 +423,7 @@ def main():
             
                 * Challenge: aqui você vai encontrar as regras do challenge, todos os requisitos. Basicamente a "regra do negócio".
                 * Narrativa Temporal - Histórico Geopolítico: aqui você vai encontrar o histórico dos dados, ocorrências geopolíticas e o cenário histórico das flutuações do preço do Brent.
-                * Insights
+                * Insights - aqui você vai encontrar os insights gerados com base na pesquisa geopolítica e com os dados históricos retirados da base do yfinance.
                 * Carregar Dados - aqui você vai encontrar o primeiro contato com os dados, a tabela com as informações brutas retiradas do YFINANCE para o Brent.
                 * Visualizar Dados - aqui você vai encontrar a primeira visualização dos dados, com o fechamento do preço do Brent e dados. Apenas um snapshot do contexto geral da base.
                 * Decomposição - aqui você vai encontrar a decomposição dos dados.
