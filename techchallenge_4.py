@@ -459,8 +459,6 @@ def main():
                 return f'background-color: {color}'
     
             predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
-            predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['Close'])
-
     
             st.write(predictions_table_styled)
     
