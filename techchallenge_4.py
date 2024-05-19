@@ -81,6 +81,7 @@ def prophet_forecast(train_data, periods=365):
 
 # Função para prever usando LSTM
 def lstm_forecast(data, look_back=10):
+    date_column = data['Date']
     data = data[['Close']]
     scaler = MinMaxScaler(feature_range=(0, 1))
     data_scaled = scaler.fit_transform(data)
@@ -103,6 +104,8 @@ def lstm_forecast(data, look_back=10):
     
     data['Forecast_LSTM'] = np.nan
     data['Forecast_LSTM'].iloc[look_back:] = predictions.flatten()
+    
+    data['Date'] = date_column  # Reinsira a coluna 'Date'
     return data
 
 # Função principal da aplicação Streamlit
@@ -130,7 +133,6 @@ def main():
         st.subheader("Previsão ARIMA")
         forecast_data = arima_forecast(data)
         plot_time_series(forecast_data, title="Previsão ARIMA")
-
     elif choice == "Previsão Prophet":
         st.subheader("Previsão Prophet")
         forecast = prophet_forecast(data)
@@ -148,5 +150,5 @@ def main():
         forecast_data = lstm_forecast(data)
         plot_time_series(forecast_data, title="Previsão LSTM")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
