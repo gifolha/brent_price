@@ -485,15 +485,21 @@ def main():
 
     elif choice == "Conclusão":
         st.subheader("Conclusão de qual é o melhor modelo")
-    
+        
         # Verificar se as previsões dos modelos estão disponíveis
-        if 'ARIMA_Forecast' in locals() and 'LSTM_Forecast' in locals() and 'Prophet_Forecast' in locals():
+        if arima_data is not None and lstm_data is not None and prophet_data is not None:
+            # Prever os próximos 30 dias com base nos modelos ARIMA, LSTM e Prophet
+            future_dates = pd.date_range(start=data['Date'].iloc[-1], periods=31, freq='D')[1:]  # Ignorar o último dia atual
+            arima_forecast = arima_forecast(data, future_dates)
+            lstm_forecast = lstm_forecast(data, future_dates)
+            prophet_forecast = prophet_forecast(data, future_dates)
+            
             # Criar dataframe com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
             forecast_df = pd.DataFrame({
                 'Date': future_dates,
-                'ARIMA_Forecast': ARIMA_Forecast,
-                'LSTM_Forecast': LSTM_Forecast,
-                'Prophet_Forecast': Prophet_Forecast
+                'ARIMA_Forecast': arima_forecast['Forecast_ARIMA'],
+                'LSTM_Forecast': lstm_forecast['Forecast_LSTM'],
+                'Prophet_Forecast': prophet_forecast['yhat']
             })
     
             # Exibir tabela com as previsões dos modelos ARIMA, LSTM e Prophet para os próximos 30 dias
@@ -501,8 +507,7 @@ def main():
             st.write(forecast_df)
         else:
             st.write("Não foi possível gerar a conclusão devido a dados ausentes.")
-
-        
+            
            
         
     elif choice == "Navegação":
