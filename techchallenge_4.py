@@ -104,7 +104,7 @@ def lstm_forecast(data, look_back=10):
 
 # Função principal da aplicação Streamlit
 def main():
-    st.title("Predição de Séries Temporais")
+    st.title("Predição de Séries Temporais - Petróleo Brent")
 
     menu = ["Challenge", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM"]
     choice = st.sidebar.selectbox("Menu", menu)
