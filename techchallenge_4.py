@@ -117,7 +117,7 @@ def lstm_forecast(data, look_back=10):
 def main():
     st.title("Análise de Preço do Petróleo Brent")
 
-    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM"]
+    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Insights", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     data = load_data()
@@ -364,6 +364,16 @@ def main():
             """
         )
 
+    elif choice == "Insights":
+        st.subheader("Insights")
+        st.image('resumo.png', caption='Insights Baseados No Histórico Geopolítico')
+        st.write(
+            """
+            x
+            """
+        )
+
+    
     elif choice == "Navegação":
         st.subheader("Navegação")
         st.write(
@@ -380,6 +390,7 @@ def main():
             
                 * Challenge: aqui você vai encontrar as regras do challenge, todos os requisitos. Basicamente a "regra do negócio".
                 * Narrativa Temporal - Histórico Geopolítico: aqui você vai encontrar o histórico dos dados, ocorrências geopolíticas e o cenário histórico das flutuações do preço do Brent.
+                * Insights
                 * Carregar Dados - aqui você vai encontrar o primeiro contato com os dados, a tabela com as informações brutas retiradas do YFINANCE para o Brent.
                 * Visualizar Dados - aqui você vai encontrar a primeira visualização dos dados, com o fechamento do preço do Brent e dados. Apenas um snapshot do contexto geral da base.
                 * Decomposição - aqui você vai encontrar a decomposição dos dados.
