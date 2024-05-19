@@ -416,8 +416,9 @@ def main():
     # Previsões ARIMA
         arima_data = arima_forecast(data)
         if arima_data is not None:
-            ax.plot(data['Date'], arima_data, label='ARIMA Forecast', color='red')
-
+            print("ARIMA data:")
+            print(arima_data.head())  # Adicionando esta linha para depurar
+            ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
 
     # Previsões Prophet
         prophet_data = prophet_forecast(data)
@@ -432,6 +433,7 @@ def main():
         ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
         ax.legend()
         st.pyplot(fig)
+
 
 
     elif choice == "Conclusão":
