@@ -407,27 +407,27 @@ def main():
 
 
     elif choice == "Previsões e Modelo de Machine Learning":
-    st.subheader("Previsões e Modelo de Machine Learning")
+        st.subheader("Previsões e Modelo de Machine Learning")
 
     # Previsões ARIMA
-    arima_data = arima_forecast(data)  # Supondo que a função arima_forecast retorna o DataFrame com as previsões ARIMA
-    if arima_data is not None:
-        plt.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+        arima_data = arima_forecast(data)  # Supondo que a função arima_forecast retorna o DataFrame com as previsões ARIMA
+        if arima_data is not None:
+            plt.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
 
     # Previsões Prophet
-    prophet_data = prophet_forecast(data)  # Supondo que a função prophet_forecast retorna o DataFrame com as previsões Prophet
-    plt.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='blue')
+        prophet_data = prophet_forecast(data)  # Supondo que a função prophet_forecast retorna o DataFrame com as previsões Prophet
+        plt.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='blue')
 
     # Previsões LSTM
-    lstm_data = lstm_forecast(data)  # Supondo que a função lstm_forecast retorna o DataFrame com as previsões LSTM
-    plt.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='green')
+        lstm_data = lstm_forecast(data)  # Supondo que a função lstm_forecast retorna o DataFrame com as previsões LSTM
+        plt.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='green')
 
-    plt.xlabel('Date')
-    plt.ylabel('Close Price')
-    plt.title('Comparação das Previsões ARIMA, Prophet e LSTM')
-    plt.legend()
-    st.pyplot(plt.gcf())
-
+        plt.xlabel('Date')
+        plt.ylabel('Close Price')
+        plt.title('Comparação das Previsões ARIMA, Prophet e LSTM')
+        plt.legend()
+        st.pyplot(plt.gcf())
+    
 
     elif choice == "Conclusão":
         st.subheader("Conclusão")
