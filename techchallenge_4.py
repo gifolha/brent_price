@@ -43,13 +43,13 @@ def load_data():
 
 # Função para plotar série temporal
 def plot_time_series(data, title="Time Series"):
+    print(data.columns)  # Verifica as colunas presentes no DataFrame
     fig, ax = plt.subplots(figsize=(15, 10))
     ax.plot(data['Date'], data['Close'], label='Close')
     ax.set_title(title)
     ax.set_xlabel('Date')
     ax.set_ylabel('Close Price')
-    plt.legend()
-    st.pyplot(fig)
+
 
 # Função para decompor série temporal
 def plot_decomposition(data):
