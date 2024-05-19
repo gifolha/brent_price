@@ -58,17 +58,17 @@ def arima_forecast(data):
     try:
         model = ARIMA(data['Close'], order=(2, 1, 2))
         results = model.fit()
-        
-        # Plotando os dados originais e as previsões no mesmo eixo
-        fig, ax = plt.subplots(figsize=(10, 6))
-        ax.plot(data['Date'], data['Close'], label='Original Data')
-        ax.plot(data['Date'], results.fittedvalues, label='ARIMA Forecast', color='red')
-        ax.set_title('ARIMA Forecast')
-        ax.set_xlabel('Date')
-        ax.set_ylabel('Close Price')
-        ax.legend()
-        st.pyplot(fig)
-        
+        data['Forecast_ARIMA'] = results.fittedvalues
+
+        # Plotando os dados originais e as previsões
+        plt.figure(figsize=(10, 6))
+        plt.plot(data['Date'], data['Close'], label='Original Data')
+        plt.plot(data['Date'], data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+        plt.title('ARIMA Forecast')
+        plt.xlabel('Date')
+        plt.ylabel('Close Price')
+        plt.legend()
+        st.pyplot(plt.gcf())  # Usando plt.gcf() para obter a figura atual
         return data
 
     except Exception as e:
