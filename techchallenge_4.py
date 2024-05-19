@@ -9,6 +9,7 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense
 from sklearn.preprocessing import MinMaxScaler
 import yfinance as yf
+from datetime import timedelta
 
 # Função para carregar dados
 @st.cache
