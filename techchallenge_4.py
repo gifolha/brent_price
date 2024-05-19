@@ -223,8 +223,8 @@ def main():
     elif choice == "Narrativa Temporal - Histórico Geopolítico":
         st.subheader("Narrativa Temporal - Histórico Geopolítico")
 
-    elif choice == "Navegação"
-        st.subheader("Navegação"):
+    elif choice == "Navegação":
+        st.subheader("Navegação")
         st.markdown(
             """
             Projeto #4 - Tech Challenge DATA VIZ AND PRODUCTION MODELS
