@@ -405,32 +405,32 @@ def main():
             """
         )
 
-
     elif choice == "Previsões e Modelo de Machine Learning":
         st.subheader("Previsões e Modelo de Machine Learning")
 
     # Plotando a série temporal original
         fig, ax = plt.subplots(figsize=(15, 8))
-        ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='lightgreen')
+        ax.plot(data['Date'], data['Close'], label='Close Price (Original)', color='black')
 
     # Previsões ARIMA
         arima_data = arima_forecast(data)
         if arima_data is not None:
-            ax.plot(data['Date'], arima_data, label='ARIMA Forecast', color='lightcoral')
-
-    # Previsões Prophet
+            ax.plot(arima_data['Date'], arima_data['Forecast_ARIMA'], label='ARIMA Forecast', color='red')
+    
+        # Previsões Prophet
         prophet_data = prophet_forecast(data)
-        ax.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='lightcoral')
-
-    # Previsões LSTM
+        ax.plot(prophet_data['ds'], prophet_data['yhat'], label='Prophet Forecast', color='blue')
+    
+        # Previsões LSTM
         lstm_data = lstm_forecast(data)
-        ax.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='lightcoral')
-
+        ax.plot(lstm_data['Date'], lstm_data['Forecast_LSTM'], label='LSTM Forecast', color='green')
+    
         ax.set_xlabel('Date')
         ax.set_ylabel('Close Price')
         ax.set_title('Comparação das Previsões ARIMA, Prophet e LSTM')
         ax.legend()
         st.pyplot(fig)
+
 
         # Criando a tabela com os dados reais e as previsões
         st.subheader("Tabela de Previsões")
@@ -459,6 +459,8 @@ def main():
                 return f'background-color: {color}'
     
             predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['ARIMA', 'LSTM', 'Prophet'])
+            predictions_table_styled = predictions_table.style.applymap(highlight_close, subset=['Close']).applymap(highlight_forecast, subset=['Close'])
+
     
             st.write(predictions_table_styled)
     
