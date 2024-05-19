@@ -451,11 +451,24 @@ def main():
 
             st.write(predictions_table)
             
-        # Adicionando uma nova tabela com os erros entre o preço de fechamento real e a previsão do ARIMA
-        st.subheader("Erros entre o Close Price (Real) e a Previsão do ARIMA")
-        error_table = predictions_table[['Date', 'Close Price (Real)', 'ARIMA Forecast']]
-        error_table['Erro'] = error_table['Close Price (Real)'] - error_table['ARIMA Forecast']
-        st.write(error_table)
+        # Criando a tabela com os dados reais e as previsões
+        st.subheader("Tabela de Previsões")
+        if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
+            predictions_table = pd.DataFrame({
+                'Data': data['Date'],
+                'Close': data['Close'],
+                'ARIMA': arima_data['Forecast_ARIMA'],  # Usando a coluna correta do arima_data
+                'Erro ARIMA': data['Close'] - arima_data['Forecast_ARIMA'],
+                'LSTM': lstm_data['Forecast_LSTM'],
+                'Erro LSTM': data['Close'] - lstm_data['Forecast_LSTM'],
+                'Prophet': prophet_data['yhat'],
+                'Erro Prophet': data['Close'] - prophet_data['yhat']
+            })
+
+            # Ordenando o DataFrame pela coluna de datas em ordem decrescente
+            predictions_table = predictions_table.sort_values(by='Data', ascending=False)
+
+            st.write(predictions_table)
 
 
     elif choice == "Conclusão":
