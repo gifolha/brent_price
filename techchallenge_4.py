@@ -435,16 +435,17 @@ def main():
         st.pyplot(fig)
 
         # Criando a tabela com os dados reais e as previsões
+    # Criando a tabela com os dados reais e as previsões
         st.subheader("Tabela de Previsões")
-        predictions_table = pd.DataFrame({
-            'Date': data['Date'],
-            'Close Price (Real)': data['Close'],
-            'ARIMA Forecast': arima_data,
-            'Prophet Forecast': prophet_data['yhat'],
-            'LSTM Forecast': lstm_data['Forecast_LSTM']
-        })
-        st.write(predictions_table)
-
+        if arima_data is not None:  # Verificando se arima_data não é None antes de usá-lo
+            predictions_table = pd.DataFrame({
+                'Date': data['Date'],
+                'Close Price (Real)': data['Close'],
+                'ARIMA Forecast': arima_data['Forecast_ARIMA'],  # Usando a coluna correta do arima_data
+                'Prophet Forecast': prophet_data['yhat'],
+                'LSTM Forecast': lstm_data['Forecast_LSTM']
+            })
+            st.write(predictions_table)
 
 
     elif choice == "Conclusão":
