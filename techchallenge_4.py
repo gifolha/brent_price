@@ -538,10 +538,6 @@ def main():
     elif choice == "Dashboard":
         st.subheader("DashBoard Interativa")
         st.write("""
-        - Dashboard link: https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD
-        
-        - Dashboard colab: https://drive.google.com/file/u/0/d/1dNt9kT8-fPNL_Q-ZHF_jEw6PcIt_5O68/edit
-
         Essa é a dashboard interativa do projeto, desenvolvida para fornecer uma visão detalhada e dinâmica de dois indicadores econômicos fundamentais: o histórico do preço do Brent e o histórico do valor do dólar.
         
         O gráfico do histórico do preço do Brent permite acompanhar as variações no valor do barril de petróleo ao longo do tempo, facilitando a análise de tendências e a compreensão dos fatores que influenciam os preços no mercado global de energia.
@@ -551,6 +547,17 @@ def main():
         Utilize essa ferramenta para explorar os dados de forma interativa e obter insights valiosos para suas análises e tomadas de decisão.
         """)
         st.image('dash.jpeg', caption='Dashboard Brent x Dólar')
+
+
+        st.write(
+            """
+        Por favor se sinta a vontade de explorar a dashboard interativa através dos links abaixo:
+
+        - Dashboard link: https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD
+        
+        - Dashboard colab: https://drive.google.com/file/u/0/d/1dNt9kT8-fPNL_Q-ZHF_jEw6PcIt_5O68/edit
+            """
+        )
 
         #aguardando confirmação se será necessário inserir dashboard ou não
     
@@ -571,7 +578,7 @@ def main():
                 * Challenge: aqui você vai encontrar as regras do challenge, todos os requisitos. Basicamente a "regra do negócio".
                 * Narrativa Temporal - Histórico Geopolítico: aqui você vai encontrar o histórico dos dados, ocorrências geopolíticas e o cenário histórico das flutuações do preço do Brent.
                 * Insights - aqui você vai encontrar os insights gerados com base na pesquisa geopolítica e com os dados históricos retirados da base do yfinance.
-                * Dashboard - aqui você vai encontrar a dashboard.
+                * Dashboard - aqui você vai encontrar a dashboard com os links para acesso à dashboard interativa.
                 * Carregar Dados - aqui você vai encontrar o primeiro contato com os dados, a tabela com as informações brutas retiradas do YFINANCE para o Brent.
                 * Visualizar Dados - aqui você vai encontrar a primeira visualização dos dados, com o fechamento do preço do Brent e dados. Apenas um snapshot do contexto geral da base.
                 * Decomposição - aqui você vai encontrar a decomposição dos dados.
