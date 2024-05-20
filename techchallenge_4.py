@@ -538,8 +538,17 @@ def main():
     elif choice == "Dashboard":
         st.subheader("DashBoard Interativa")
         st.write("""
-        Dashboard link: https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD
-        Dashboard colab: https://drive.google.com/file/u/0/d/1dNt9kT8-fPNL_Q-ZHF_jEw6PcIt_5O68/edit
+        - Dashboard link: https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD
+        
+        - Dashboard colab: https://drive.google.com/file/u/0/d/1dNt9kT8-fPNL_Q-ZHF_jEw6PcIt_5O68/edit
+
+        Essa é a dashboard interativa do projeto, desenvolvida para fornecer uma visão detalhada e dinâmica de dois indicadores econômicos fundamentais: o histórico do preço do Brent e o histórico do valor do dólar.
+        
+        O gráfico do histórico do preço do Brent permite acompanhar as variações no valor do barril de petróleo ao longo do tempo, facilitando a análise de tendências e a compreensão dos fatores que influenciam os preços no mercado global de energia.
+        
+        Já o gráfico do histórico do dólar oferece uma perspectiva sobre as flutuações cambiais da moeda norte-americana, essencial para entender seu impacto em diversas áreas da economia, incluindo importações, exportações e investimentos.
+        
+        Utilize essa ferramenta para explorar os dados de forma interativa e obter insights valiosos para suas análises e tomadas de decisão.
         """)
         st.image('dash.jpeg', caption='Dashboard Brent x Dólar')
 
