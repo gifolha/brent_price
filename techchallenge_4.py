@@ -138,7 +138,7 @@ def lstm_forecast(data, look_back=10):
 def main():
     st.title("Análise de Preço do Petróleo Brent")
 
-    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Insights", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM", "DashBoard Interativa", "Previsões e Modelo de Machine Learning", "Conclusão", "Informações Importantes"]
+    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Insights", "Dashboard", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM", "DashBoard Interativa", "Previsões e Modelo de Machine Learning", "Conclusão", "Informações Importantes"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     data = load_data()
@@ -527,12 +527,14 @@ def main():
             Link para esse app do Streamlit:
             https://brentprice-tech4.streamlit.app/
 
+            Link para a Dashboard:
+            https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD/edit
             """
         )
 
-    elif choice == "DashBoard Interativa":
+    elif choice == "Dashboard":
         st.subheader("DashBoard Interativa")
-        st.write(" ")
+        st.write("Dashboard link: https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD/edit")
         #aguardando confirmação se será necessário inserir dashboard ou não
     
     elif choice == "Navegação":
@@ -552,6 +554,7 @@ def main():
                 * Challenge: aqui você vai encontrar as regras do challenge, todos os requisitos. Basicamente a "regra do negócio".
                 * Narrativa Temporal - Histórico Geopolítico: aqui você vai encontrar o histórico dos dados, ocorrências geopolíticas e o cenário histórico das flutuações do preço do Brent.
                 * Insights - aqui você vai encontrar os insights gerados com base na pesquisa geopolítica e com os dados históricos retirados da base do yfinance.
+                * Dashboard - aqui você vai encontrar a dashboard.
                 * Carregar Dados - aqui você vai encontrar o primeiro contato com os dados, a tabela com as informações brutas retiradas do YFINANCE para o Brent.
                 * Visualizar Dados - aqui você vai encontrar a primeira visualização dos dados, com o fechamento do preço do Brent e dados. Apenas um snapshot do contexto geral da base.
                 * Decomposição - aqui você vai encontrar a decomposição dos dados.
