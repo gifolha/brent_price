@@ -138,7 +138,7 @@ def lstm_forecast(data, look_back=10):
 def main():
     st.title("Análise de Preço do Petróleo Brent")
 
-    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Insights", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM", "Previsões e Modelo de Machine Learning", "Conclusão"]
+    menu = ["Navegação", "Challenge", "Narrativa Temporal - Histórico Geopolítico", "Insights", "Carregar Dados", "Visualizar Dados", "Decomposição", "Previsão ARIMA", "Previsão Prophet", "Previsão LSTM", "DashBoard Interativa", "Previsões e Modelo de Machine Learning", "Conclusão", "Informações Importantes"]
     choice = st.sidebar.selectbox("Menu", menu)
 
     data = load_data()
@@ -529,6 +529,11 @@ def main():
 
             """
         )
+
+    elif choice == "DashBoard Interativa":
+        st.subheader("DashBoard Interativa")
+        st.write(" ")
+        #aguardando confirmação se será necessário inserir dashboard ou não
     
     elif choice == "Navegação":
         st.subheader("Navegação")
@@ -555,6 +560,7 @@ def main():
                 * Previsão LSTM - aqui você vai encontrar a terceira previsão dos dados, utilizando o modelo de Machine Learning LSTM.
                 * Previsões e Modelo de Machine Learning - aqui você vai encontrar alguns dados e comparações entre os modelos ARIMA, PROPHET e LSTM.
                 * Conclusão - aqui você vai encontrar a conclusão deste projeto.
+                * Informações Importantes - seção para os professores da pós tech encontrarem links do github e colab com o restante do projeto! :)
                 """
             )
 
