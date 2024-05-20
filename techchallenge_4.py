@@ -528,8 +528,8 @@ def main():
             https://brentprice-tech4.streamlit.app/
 
             Link para a Dashboard:
-            https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD/edit
-
+            https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD
+            
             Link para o Colab do Dashboard:
             https://drive.google.com/file/u/0/d/1dNt9kT8-fPNL_Q-ZHF_jEw6PcIt_5O68/edit
             """
@@ -538,7 +538,7 @@ def main():
     elif choice == "Dashboard":
         st.subheader("DashBoard Interativa")
         st.write("""
-        Dashboard link: https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD/edit
+        Dashboard link: https://lookerstudio.google.com/u/0/reporting/aaa5dd57-d85c-491a-bc87-a7b85e56e405/page/kurzD
         Dashboard colab: https://drive.google.com/file/u/0/d/1dNt9kT8-fPNL_Q-ZHF_jEw6PcIt_5O68/edit
         """)
         st.image('dash.jpeg', caption='Dashboard Brent x Dólar')
