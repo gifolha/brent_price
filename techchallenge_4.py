@@ -546,7 +546,7 @@ def main():
         
         Utilize essa ferramenta para explorar os dados de forma interativa e obter insights valiosos para suas análises e tomadas de decisão.
         """)
-        st.image('dash.jpeg', caption='Dashboard Brent x Dólar')
+        st.image('dashboard.png', caption='Dashboard Brent x Dólar')
 
 
         st.write(
