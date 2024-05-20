@@ -483,6 +483,28 @@ def main():
     
             st.write(predictions_table_styled)
 
+    elif choice == "Conclusão":
+        st.subheader("Conclusão")
+        st.write(
+            """
+            Os modelos Arima e LSTM se mostraram muito eficientes para prever os dados com base nos dados históricos da base do Brent.
+            O ARIMA é um modelo popular para previsão de séries temporais devido à sua simplicidade e eficácia em capturar padrões temporais em dados históricos.
+            A LSTM (Long Short-Term Memory) é um tipo de rede neural recorrente (RNN) muito utilizada em problemas de previsão em séries temporais, especialmente quando se trata de dados sequenciais com dependências temporais de longo prazo. Ela é capaz de lembrar informações por longos períodos de tempo, permitindo assim capturar padrões complexos em séries temporais.
+
+            Analisar os dados de uma base como a base histórica do preço em dólar do Brent é uma tarefa complicada, pois existem muitos fatores e variáveis que podem influenciar na queda e aumento do preço.
+            Como podemos analisar geopoliticamente, o preço do Brent pode aumentar ou diminuir devido a tensões políticas, guerras, eleições, alta ou baixa demanda e pouca ou muita produção.
+
+            Neste caso, o modelo ARIMA se mostrou um pouco melhor do que o LSTM, porém os dois modelos se sairam muito bem em prever os dados.
+
+            O Prophet é especialmente útil para previsões em séries temporais que exibem tendências sazonais e feriados, pois ele pode modelar automaticamente esses padrões sem a necessidade de muita intervenção manual. Ele também lida bem com dados ausentes e outliers.
+            No modelo Prophet, conseguimos enxergar que os dados foram previstos acima do que os dados reais de fechamento, o que pode mostrar uma tendência de que o preço do Brent pode vir a subir, se comparado com a tendência histórica. 
+            Os dados gerados pelo Prophet são bons para ser usados em um contexto geral de predição futura analisando apenas se a tendência é de queda ou crescimento do preço.
+
+            No caso do ARIMA e LSTM, conseguiriamos ter uma resposta imediata (predição mais curta) mais acertiva.
+
+            Concluindo que neste projeto, o modelo ARIMA foi o que se comportou sendo o mais acertivo.
+            """
+        )
     
     elif choice == "Navegação":
         st.subheader("Navegação")
