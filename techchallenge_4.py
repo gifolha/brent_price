@@ -505,6 +505,30 @@ def main():
             Concluindo que neste projeto, o modelo ARIMA foi o que se comportou sendo o mais acertivo.
             """
         )
+
+    elif choice == "Informações Importantes":
+        st.subheader("Informações Importantes")
+        st.write(
+            """
+            Data Analytics - 2DTAT
+
+            FASE 4 - DATA VIZ AND PRODUCTION MODELS
+
+            Tech Challenge #4 - Consultoria IPEA (analisar os dados de preço do petróleo Brent)
+            
+            Grupo 46 - Giovanna Folha Carlomagno, Henrique Estevão
+
+            Código Colab - dataviz, data manipulation, model training, complementary information:
+            https://colab.research.google.com/drive/1xHyhS7xYwSHL1e_bUYWCJEwRyTxTdgQi#scrollTo=aZlPmBbQcd4j
+
+            Link direto para o projeto no GitHub:
+            https://github.com/gifolha/brent_price
+
+            Link para esse app do Streamlit:
+            https://brentprice-tech4.streamlit.app/
+
+            """
+        )
     
     elif choice == "Navegação":
         st.subheader("Navegação")
